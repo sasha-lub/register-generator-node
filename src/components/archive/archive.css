@@ -1,0 +1,8 @@
+.file-name {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.file-name:hover {
+  color: #feb386;
+}

@@ -1,0 +1,55 @@
+.section-field {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 25px 0;
+}
+
+.section-field__name {
+  color: #feb386;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.form {
+  margin: 20px;
+  font-size: 1rem;
+
+  display: flex;
+  flex-direction: column;
+}
+.form__section{
+  margin: 15px 0;
+  border-radius: 1em;
+  border: solid 1px #ccc;
+}
+.form__title{
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  width: 395px;
+  margin: 10px auto;
+}
+.form__input{
+  outline: none;
+  border: none;
+  border-bottom: solid 1px #ccc;
+  margin: 0 10px;
+  font-size: 1em;
+  text-align: center;
+}
+
+.form__transaction, .form__signal{
+  margin: 20px 10px;
+}
+.form__transaction .form__input, .form__signal .form__input{
+  width: 150px;
+}
+
+.page__search-result, .page__user-list {
+  width: 50%;
+  padding: 0;
+}

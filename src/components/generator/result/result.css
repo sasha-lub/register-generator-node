@@ -1,0 +1,28 @@
+.btn_large {
+  width: 224px;
+}
+
+.icon {
+  font-size: 7em;
+  text-align: center;
+}
+
+.icon:hover {
+  color: #feb386;
+}
+
+.download-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.dowload-text{
+  text-align: center;
+}
+
+.download-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  outline: none;
+}
