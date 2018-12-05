@@ -4,5 +4,5 @@ export * from './environment';
 export * from './result';
 
 export * from './interface';
-export * from './transaction';
+export * from './register';
 export * from './sequence';

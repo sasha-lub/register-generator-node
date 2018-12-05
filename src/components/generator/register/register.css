@@ -1,0 +1,16 @@
+.code-textarea {
+  padding: 20px 15px 0 15px;
+}
+
+.code-textarea p {
+  text-align: center;
+}
+
+.code-textarea textarea {
+  width: 96%;
+  height: 50px;
+}
+
+.creating {
+  width: 137px;
+}

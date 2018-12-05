@@ -9,9 +9,9 @@ import { HomePage } from './home-page';
 import {
   Environment,
   Result,
-  Transaction,
   Interface,
   Sequence,
+  Register
 } from './';
 
 import {
@@ -44,8 +44,8 @@ class GeneratorClass extends Component {
     case (pathname.includes('done')):
       return <Result {...this.props} />;
 
-    case (pathname.includes('transaction')):
-      return <Transaction {...this.props} />;
+    case (pathname.includes('register')):
+      return <Register {...this.props} />;
 
     case (pathname.includes('interface')):
       return <Interface {...this.props} />;
@@ -65,8 +65,8 @@ class GeneratorClass extends Component {
     case (pathname.includes('done')):
       return 'Here is your file!';
 
-    case (pathname.includes('transaction')):
-      return 'Let\'s create a transaction';
+    case (pathname.includes('register')):
+      return 'Let\'s create a register';
 
     case (pathname.includes('interface')):
       return 'Let\'s create a interface';

@@ -13,13 +13,13 @@ export const HomePage = (props) => {
       </Link>
 
       <p className="paragraph">
-        You also have an opportunity to create transaction / interface / sequence right now,
+        You also have an opportunity to create register / interface / sequence right now,
         so you can use it during generating template afterwards.
       </p>
       <div className="btn-wrapper">
-        <Link to="/generator/transaction">
+        <Link to="/generator/register">
           <button className="initial-btn btn" onClick={props.resetForm}>
-            Create transaction
+            Create register
           </button>
         </Link>
 
