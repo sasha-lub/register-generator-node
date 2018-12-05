@@ -20,20 +20,18 @@ export const Register = (props) => {
           Register
         </legend>
         <Field className="form__input creating"
-               name={`register.name`}
+               name={'register.name'}
                component="input"
                type="text"
                placeholder="name"/>
         <Field className="form__input creating"
-               name={`register.size`}
+               name={'register.size'}
                component="input"
                type="int"
                placeholder="size" />
-        <Field className="form__input creating"
-               name={`register.coverageMode`}
-               component="input"
-               type="select">
-            <option disabled>Coverage mode</option>
+        <Field className="form__input"
+               name={'register.coverageMode'}
+               component="select">
             <option value="1">COVERAGE</option>
             <option value="0">NO COVERAGE</option>
         </Field>
