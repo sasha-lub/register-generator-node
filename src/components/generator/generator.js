@@ -10,8 +10,7 @@ import {
   Environment,
   Result,
   Interface,
-  Sequence,
-  Register
+  Register,
 } from './';
 
 import {
@@ -22,8 +21,8 @@ import {
   resetTransactionFieldsAmount,
   updateSignalFieldsAmount,
   resetSignalFieldsAmount,
-  updateSequenceFieldsAmount,
-  resetSequenceFieldsAmount,
+  updateRegisterFieldsAmount,
+  resetRegisterFieldsAmount,
 } from '../../store';
 
 import '../../styles/index.css';
@@ -38,7 +37,7 @@ class GeneratorClass extends Component {
     case (pathname.includes('env')):
       return <Environment/>;
 
-    case (pathname.includes('agent')):
+    case (pathname.includes('register')):
       return <AgentPage {...this.props} />;
 
     case (pathname.includes('done')):
@@ -49,9 +48,6 @@ class GeneratorClass extends Component {
 
     case (pathname.includes('interface')):
       return <Interface {...this.props} />;
-
-    case (pathname.includes('sequence')):
-      return <Sequence {...this.props} />;
 
     default:
       return <HomePage {...this.props} />;
@@ -70,9 +66,6 @@ class GeneratorClass extends Component {
 
     case (pathname.includes('interface')):
       return 'Let\'s create a interface';
-
-    case (pathname.includes('sequence')):
-      return 'Let\'s create a sequence';
 
     default:
       return 'Let\'s generate template of verification';
@@ -104,8 +97,8 @@ const mapDispatchToProps = {
   resetTransactionFieldsAmount,
   updateSignalFieldsAmount,
   resetSignalFieldsAmount,
-  updateSequenceFieldsAmount,
-  resetSequenceFieldsAmount,
+  updateRegisterFieldsAmount,
+  resetRegisterFieldsAmount,
 };
 
 export const Generator = reduxForm({

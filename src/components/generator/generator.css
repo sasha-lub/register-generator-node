@@ -7,9 +7,8 @@
 .section-field__name {
   color: #feb386;
   text-align: center;
-  text-transform: uppercase;
   font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: bold;
   margin-left: 20px;
 }

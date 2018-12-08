@@ -13,7 +13,7 @@ export const RegisterFieldComponent = (props) => {
     );
 
     return registerFieldsArray.map((index) => (
-        <div className="section-field" key={`trans-${index}`}>
+        <div className="section-field" key={`register-field-${index}`}>
             <Field className="form__input creating"
                    name={`registerField${index}.name`}
                    component="input"
@@ -31,9 +31,8 @@ export const RegisterFieldComponent = (props) => {
                    placeholder="lsb_pos"/>
             <Field className="form__input creating"
                    name={`registerField${index}.access`}
-                   component="input"
-                   type="text"
-                   placeholder="access">
+                   component="select"
+             >
                 <option value="RW">RW</option>
                 <option value="RO">RO</option>
             </Field>
@@ -54,9 +53,8 @@ export const RegisterFieldComponent = (props) => {
                    placeholder="has reset"/>
             <Field className="form__input creating"
                    name={`registerField${index}.isRand`}
-                   component="input"
-                   type="select">
-                <option disabled>is rand</option>
+                   component="select"
+            >
                 <option value="1">1</option>
                 <option value="0">0</option>
             </Field>
@@ -65,6 +63,18 @@ export const RegisterFieldComponent = (props) => {
                    component="input"
                    type="text"
                    placeholder="individually accessible"/>
+            {/*<button*/}
+                {/*className="field-btn"*/}
+                {/*onClick={props.updateRegisterFieldsAmount}*/}
+            {/*>*/}
+                {/*<i className="far fa-copy"/>*/}
+            {/*</button>*/}
+            {/*<button*/}
+                {/*className="field-btn"*/}
+                {/*onClick={props.updateRegisterFieldsAmount}*/}
+            {/*>*/}
+                {/*<i className="far fa-trash-alt"/>*/}
+            {/*</button>*/}
         </div>
     ));
 };

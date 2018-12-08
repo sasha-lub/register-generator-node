@@ -37,17 +37,15 @@ export const Register = (props) => {
         </Field>
 
         <FieldArray
-          name="register"
+          name="register.fields"
           component={RegisterField}
         />
-
-        <button
-          className="btn"
-          onClick={props.updateRegisterFieldsAmount}
-        >
-          add field
-        </button>
-
+          <button
+              className="btn"
+              onClick={props.updateRegisterFieldsAmount}
+          >
+              New field
+          </button>
       </fieldset>
 
       <Link to="/generator">

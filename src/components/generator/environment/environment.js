@@ -40,7 +40,7 @@ export const Environment = () => {
             type="checkbox"
             id="env.testbench"
           />
-          <span className="checkmark"></span>
+          <span className="checkmark"/>
         </label>
 
         <label className="form__title" htmlFor="env.config">

@@ -1,23 +1,23 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { formValueSelector } from 'redux-form';
+import { getFormValues } from 'redux-form';
 
-import { agent } from '../../../templates';
+import { register } from '../../../templates';
 
 import './result.css';
 export const ResultClass = (props) => {
-  const { name } = props;
-  const generatedData = agent({ name });
+  const { values } = props;
+  const generatedData = register({ values });
 
-  localStorage.setItem(`sv-${name}`, generatedData);
+  localStorage.setItem(`sv-${values.env.name}`, generatedData);
 
   const handleDownload = () => {
     const file = new Blob([generatedData], { type: 'text/plain' });
 
     const element = document.createElement('a');
     element.href = URL.createObjectURL(file);
-    element.download = `${name.slice(3)}.sv`;
+    element.download = `name.sv`;
     element.click();
   };
 
@@ -28,7 +28,7 @@ export const ResultClass = (props) => {
           className="download-btn"
           onClick={handleDownload}
         >
-          <i className="fas fa-file-code icon"></i>
+          <i className="fas fa-file-code icon"/>
         </button>
         <p className="dowload-text">Press the icon to download</p>
       </section>
@@ -49,17 +49,7 @@ export const ResultClass = (props) => {
   );
 };
 
-const selector = formValueSelector('generatorData');
-
 export const Result = connect(
-  state => {
-    // const testbench = selector(state, 'env.testbench');
-    const name = selector(state, 'env.name');
-    // const { firstName, lastName } = selector(state, 'firstName', 'lastName')
-    return {
-      // testbench,
-      name,
-      // fullName: `${firstName || ''} ${lastName || ''}`
-    };
-  }
-)(ResultClass);
+  state => ({
+      values : getFormValues('generatorData')(state),
+  }))(ResultClass);

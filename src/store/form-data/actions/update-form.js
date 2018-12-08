@@ -7,8 +7,8 @@ import {
   resetTransactionFieldsAmountAction,
   updateSignalFieldsAmountAction,
   resetSignalFieldsAmountAction,
-  updateSequenceFieldsAmountAction,
-  resetSequenceFieldsAmountAction,
+  updateRegisterFieldsAmountAction,
+  resetRegisterFieldsAmountAction,
 } from './update-form-action';
 
 export const resetForm = () => (dispatch) => {
@@ -39,10 +39,10 @@ export const resetSignalFieldsAmount = () => (dispatch) => {
   dispatch(resetSignalFieldsAmountAction());
 };
 
-export const updateSequenceFieldsAmount = () => (dispatch) => {
-  dispatch(updateSequenceFieldsAmountAction());
+export const updateRegisterFieldsAmount = () => (dispatch) => {
+  dispatch(updateRegisterFieldsAmountAction());
 };
 
-export const resetSequenceFieldsAmount = () => (dispatch) => {
-  dispatch(resetSequenceFieldsAmountAction());
+export const resetRegisterFieldsAmount = () => (dispatch) => {
+  dispatch(resetRegisterFieldsAmountAction());
 };

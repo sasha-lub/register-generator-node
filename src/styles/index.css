@@ -18,7 +18,7 @@ fieldset {
 }
 
 .main {
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -49,6 +49,20 @@ fieldset {
   margin: 0 auto;
 }
 .btn:hover{
+  background: #feb386;
+  color: #fff;
+  border-color: #feb386;
+}
+
+.field-btn{
+  width: 33px;
+  height: 33px;
+  outline: none;
+  border-radius: 2em;
+  border: solid 1px #ccc;
+  font-size: .9em;
+}
+.field-btn:hover{
   background: #feb386;
   color: #fff;
   border-color: #feb386;

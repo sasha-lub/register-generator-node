@@ -5,4 +5,3 @@ export * from './result';
 
 export * from './interface';
 export * from './register';
-export * from './sequence';

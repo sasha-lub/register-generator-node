@@ -28,12 +28,6 @@ export const HomePage = (props) => {
             Create interface
           </button>
         </Link>
-
-        <Link to="/generator/sequence">
-          <button className="initial-btn btn" onClick={props.resetForm}>
-            Create sequence
-          </button>
-        </Link>
       </div>
     </section>
   );
