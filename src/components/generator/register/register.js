@@ -1,56 +1,56 @@
 import React, { Fragment } from 'react';
-import { Field, FieldArray, reduxForm } from 'redux-form';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Field, FieldArray } from 'redux-form';
 
 import { RegisterField } from './register-field';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './register.css';
 
-export const Register = () => {
-  const handleClick = () => {
-    toast('🦄 Register is successfully created!');
-  };
+export const Register = ({fields}) => (
 
-  return (
-    <Fragment>
+<div>
+    {fields.map((register, index) => (
+    <Fragment key={`register-${index}`}>
       <fieldset className="form__section">
         <legend className="section-field__name">
-          Register
+          Register {index+1}
         </legend>
         <Field className="form__input creating"
-               name={'register.name'}
+               name={`${register}.name`}
                component="input"
                type="text"
                placeholder="name"/>
         <Field className="form__input creating"
-               name={'register.size'}
+               name={`${register}.size`}
                component="input"
                type="int"
                placeholder="size" />
         <Field className="form__input"
-               name={'register.coverageMode'}
+               name={`${register}.coverageMode`}
                component="select">
-            <option value="1">COVERAGE</option>
-            <option value="0">NO COVERAGE</option>
+            <option value="UVM_NO_COVERAGE">UVM_NO_COVERAGE</option>
+            <option value="UVM_CVR_REG_BITS">UVM_CVR_REG_BITS</option>
+            <option value="UVM_CVR_ADDR_MAP">UVM_CVR_ADDR_MAP</option>
+            <option value="UVM_CVR_FIELD_VALS">UVM_CVR_FIELD_VALS</option>
+            <option value="UVM_CVR_ALL">UVM_CVR_ALL</option>
         </Field>
 
         <FieldArray
-          name="register.fields"
+          name={`${register}.fields`}
           component={RegisterField}
         />
 
       </fieldset>
 
-      <Link to="/generator">
-        <button 
-          className="initial-btn btn" 
-          onClick={handleClick}
-        >
-          Create
-        </button>
-      </Link>
+
     </Fragment>
-  );
-};
+    ))}
+        <button
+            className="initial-btn btn"
+            onClick={() => fields.push({})}
+        >
+            Add register
+        </button>
+
+</div>
+);

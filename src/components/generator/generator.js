@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { ToastContainer } from 'react-toastify';
 
-import { HomePage } from './home-page';
-
 import {
   Result,
   Register,
+  Block,
+    RegisterModel,
 } from './';
 
 import {
@@ -29,8 +29,11 @@ class GeneratorClass extends Component {
     case (pathname.includes('register')):
       return <Register {...this.props} />;
 
+    case (pathname.includes('block')):
+      return <Block {...this.props} />;
+
     default:
-      return <HomePage {...this.props} />;
+      return <RegisterModel {...this.props} />;
     }
   }
 
@@ -43,9 +46,10 @@ class GeneratorClass extends Component {
 
     case (pathname.includes('register')):
       return 'Let\'s create a register';
-
+      case (pathname.includes('block')):
+            return 'Let\'s create a block';
     default:
-      return 'Let\'s generate template of verification';
+      return 'Let\'s generate register model';
     }
   }
 
@@ -76,7 +80,6 @@ export const Generator = reduxForm({
   initialValues: {
     env: {
       baseType: 'uvm_env',
-      testbench: false,
     },
   },
 })(connect(null, mapDispatchToProps)(GeneratorClass));
