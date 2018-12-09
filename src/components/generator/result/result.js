@@ -41,7 +41,7 @@ export const ResultClass = (props) => {
       </section>
 
       <Link to="/generator/env">
-        <button className="initial-btn btn btn_large">
+        <button className="initial-btn btn btn_large" onClick={props.resetForm}>
           Generate a new one
         </button>
       </Link>

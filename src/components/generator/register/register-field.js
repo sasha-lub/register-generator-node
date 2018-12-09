@@ -2,10 +2,6 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { connect } from 'react-redux';
 
-import {
-    selectRegisterFieldsAmount,
-} from '../../../store';
-
 const RegisterFieldComponent = ({fields}) => (
     <div>
         <button

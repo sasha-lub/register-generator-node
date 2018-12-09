@@ -3,26 +3,15 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { ToastContainer } from 'react-toastify';
 
-import { AgentPage } from './agent-page';
 import { HomePage } from './home-page';
 
 import {
-  Environment,
   Result,
-  Interface,
   Register,
 } from './';
 
 import {
   resetForm,
-  updateAgentAmount,
-  resetAgentAmount,
-  updateTransactionFieldsAmount,
-  resetTransactionFieldsAmount,
-  updateSignalFieldsAmount,
-  resetSignalFieldsAmount,
-  updateRegisterFieldsAmount,
-  resetRegisterFieldsAmount,
 } from '../../store';
 
 import '../../styles/index.css';
@@ -34,20 +23,11 @@ class GeneratorClass extends Component {
 
     switch (true) {
 
-    case (pathname.includes('env')):
-      return <Environment/>;
-
-    case (pathname.includes('agent')):
-      return <AgentPage {...this.props} />;
-
     case (pathname.includes('done')):
       return <Result {...this.props} />;
 
     case (pathname.includes('register')):
       return <Register {...this.props} />;
-
-    case (pathname.includes('interface')):
-      return <Interface {...this.props} />;
 
     default:
       return <HomePage {...this.props} />;
@@ -63,9 +43,6 @@ class GeneratorClass extends Component {
 
     case (pathname.includes('register')):
       return 'Let\'s create a register';
-
-    case (pathname.includes('interface')):
-      return 'Let\'s create a interface';
 
     default:
       return 'Let\'s generate template of verification';
@@ -91,14 +68,6 @@ class GeneratorClass extends Component {
 
 const mapDispatchToProps = {
   resetForm,
-  updateAgentAmount,
-  resetAgentAmount,
-  updateTransactionFieldsAmount,
-  resetTransactionFieldsAmount,
-  updateSignalFieldsAmount,
-  resetSignalFieldsAmount,
-  updateRegisterFieldsAmount,
-  resetRegisterFieldsAmount,
 };
 
 export const Generator = reduxForm({
