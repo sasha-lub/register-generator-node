@@ -6,81 +6,80 @@ import {
     selectRegisterFieldsAmount,
 } from '../../../store';
 
-export const RegisterFieldComponent = (props) => {
-    const registerFieldsArray = Array.from(
-        { length: props.registerFieldsAmount },
-        (value, index) => index + 1,
-    );
+const RegisterFieldComponent = ({fields}) => (
+    <div>
+        <button
+            className="btn"
+            onClick={() => fields.push({})}
+        >
+            New field
+        </button>
 
-    return registerFieldsArray.map((index) => (
-        <div className="section-field" key={`register-field-${index}`}>
-            <Field className="form__input creating"
-                   name={`registerField${index}.name`}
-                   component="input"
-                   type="text"
-                   placeholder="name"/>
-            <Field className="form__input creating"
-                   name={`registerField${index}.size`}
-                   component="input"
-                   type="int"
-                   placeholder="size" />
-            <Field className="form__input creating"
-                   name={`registerField${index}.lsbPos`}
-                   component="input"
-                   type="text"
-                   placeholder="lsb_pos"/>
-            <Field className="form__input creating"
-                   name={`registerField${index}.access`}
-                   component="select"
-             >
-                <option value="RW">RW</option>
-                <option value="RO">RO</option>
-            </Field>
-            <Field className="form__input creating"
-                   name={`registerField${index}.volatile`}
-                   component="input"
-                   type="text"
-                   placeholder="volatile"/>
-            <Field className="form__input creating"
-                   name={`registerField${index}.reset`}
-                   component="input"
-                   type="text"
-                   placeholder="reset"/>
-            <Field className="form__input creating"
-                   name={`registerField${index}.reset`}
-                   component="input"
-                   type="text"
-                   placeholder="has reset"/>
-            <Field className="form__input creating"
-                   name={`registerField${index}.isRand`}
-                   component="select"
-            >
-                <option value="1">1</option>
-                <option value="0">0</option>
-            </Field>
-            <Field className="form__input creating"
-                   name={`registerField${index}.individuallyAccessible`}
-                   component="input"
-                   type="text"
-                   placeholder="individually accessible"/>
-            {/*<button*/}
-                {/*className="field-btn"*/}
-                {/*onClick={props.updateRegisterFieldsAmount}*/}
-            {/*>*/}
-                {/*<i className="far fa-copy"/>*/}
-            {/*</button>*/}
-            {/*<button*/}
-                {/*className="field-btn"*/}
-                {/*onClick={props.updateRegisterFieldsAmount}*/}
-            {/*>*/}
-                {/*<i className="far fa-trash-alt"/>*/}
-            {/*</button>*/}
-        </div>
-    ));
-};
+        {fields.map((field, index) => (
+            <div className="section-field" key={`register-field-${index}`}>
+                <Field className="form__input creating"
+                       name={`${field}.name`}
+                       component="input"
+                       type="text"
+                       placeholder="name"/>
+                <Field className="form__input creating"
+                       name={`${field}.size`}
+                       component="input"
+                       type="int"
+                       placeholder="size"/>
+                <Field className="form__input creating"
+                       name={`${field}.lsbPos`}
+                       component="input"
+                       type="text"
+                       placeholder="lsb_pos"/>
+                <Field className="form__input creating"
+                       name={`${field}.access`}
+                       component="select"
+                >
+                    <option value="RW">RW</option>
+                    <option value="RO">RO</option>
+                </Field>
+                <Field className="form__input creating"
+                       name={`${field}.volatile`}
+                       component="input"
+                       type="text"
+                       placeholder="volatile"/>
+                <Field className="form__input creating"
+                       name={`${field}.reset`}
+                       component="input"
+                       type="text"
+                       placeholder="reset"/>
+                <Field className="form__input creating"
+                       name={`${field}.hasReset`}
+                       component="input"
+                       type="text"
+                       placeholder="has reset"/>
+                <Field className="form__input creating"
+                       name={`${field}.isRand`}
+                       component="select"
+                >
+                    <option value="1">1</option>
+                    <option value="0">0</option>
+                </Field>
+                <Field className="form__input creating"
+                       name={`${field}.individuallyAccessible`}
+                       component="input"
+                       type="text"
+                       placeholder="individually accessible"/>
+                <button
+                className="field-btn"
+                >
+                <i className="far fa-copy"/>
+                </button>
+                <button
+                className="field-btn"
+                >
+                <i className="far fa-trash-alt"/>
+                </button>
+            </div>
 
-const mapStateToProps = (state) => ({
-    registerFieldsAmount: selectRegisterFieldsAmount(state),
-});
+        ))}
+    </div>
+);
 
-export const RegisterField = connect(mapStateToProps)(RegisterFieldComponent);
+export const RegisterField = connect()(RegisterFieldComponent);

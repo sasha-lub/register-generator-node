@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Field, FieldArray } from 'redux-form';
+import { Field, FieldArray, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -8,7 +8,7 @@ import { RegisterField } from './register-field';
 import 'react-toastify/dist/ReactToastify.css';
 import './register.css';
 
-export const Register = (props) => {
+export const Register = () => {
   const handleClick = () => {
     toast('🦄 Register is successfully created!');
   };
@@ -40,12 +40,7 @@ export const Register = (props) => {
           name="register.fields"
           component={RegisterField}
         />
-          <button
-              className="btn"
-              onClick={props.updateRegisterFieldsAmount}
-          >
-              New field
-          </button>
+
       </fieldset>
 
       <Link to="/generator">
