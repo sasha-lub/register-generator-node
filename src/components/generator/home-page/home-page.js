@@ -7,7 +7,7 @@ export const HomePage = (props) => {
   return (
     <section>
       <Link to="/generator/env">
-        <button className="initial-btn btn" onClick={props.resetForm}>
+        <button className="initial-btn btn">
           Start
         </button>
       </Link>

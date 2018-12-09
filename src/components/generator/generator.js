@@ -37,7 +37,7 @@ class GeneratorClass extends Component {
     case (pathname.includes('env')):
       return <Environment/>;
 
-    case (pathname.includes('register')):
+    case (pathname.includes('agent')):
       return <AgentPage {...this.props} />;
 
     case (pathname.includes('done')):
