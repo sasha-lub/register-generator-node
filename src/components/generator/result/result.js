@@ -2,13 +2,12 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getFormValues } from 'redux-form';
-
-import { register } from '../../../templates';
+import { render } from 'velocityjs';
 
 import './result.css';
 export const ResultClass = (props) => {
-  const { values } = props;
-  const generatedData = register({ values });
+
+  const generatedData = render('', values, null);
 
   localStorage.setItem(`sv-${values.env.name}`, generatedData);
 

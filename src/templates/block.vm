@@ -1,0 +1,8 @@
+export const block = `//
+
+    #foreach($register in $reg-model.registers)
+        rand $register.name;
+    #end
+
+
+`;
