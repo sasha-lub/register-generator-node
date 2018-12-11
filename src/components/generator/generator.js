@@ -1,18 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { reduxForm } from 'redux-form';
-import { ToastContainer } from 'react-toastify';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {reduxForm} from 'redux-form';
+import {ToastContainer} from 'react-toastify';
 
-import {
-  Result,
-  Register,
-  Block,
-    RegisterModel,
-} from './';
+import {Block, Register, RegisterModel, Result,} from './';
 
-import {
-  resetForm,
-} from '../../store';
+import {resetForm,} from '../../store';
 
 import '../../styles/index.css';
 import './generator.css';
@@ -78,8 +71,9 @@ export const Generator = reduxForm({
   form: 'generatorData',
   enableReinitialize: true,
   initialValues: {
-    env: {
-      baseType: 'uvm_env',
+    regModel: {
+      name: 'register_model',
+      registers: [{}]
     },
   },
 })(connect(null, mapDispatchToProps)(GeneratorClass));

@@ -1,3 +1,7 @@
 .creating {
   width: 70px;
 }
+
+.input:empty{
+  color: #512da8;
+}

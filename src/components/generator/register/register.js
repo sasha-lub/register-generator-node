@@ -10,17 +10,24 @@ export const Register = ({fields}) => (
 
 <div>
     {fields.map((register, index) => (
-    <Fragment key={`register-${index}`}>
+    <Fragment key={`register-${index}`} >
       <fieldset className="form__section">
         <legend className="section-field__name">
           Register {index+1}
+          <button
+            className="field-btn"
+            onClick={() => fields.remove(index)}
+          >
+            <i className="far fa-times-circle"/>
+          </button>
         </legend>
-        <Field className="form__input creating"
+          <div className="section-field">
+        <Field className="form__input"
                name={`${register}.name`}
                component="input"
                type="text"
                placeholder="name"/>
-        <Field className="form__input creating"
+        <Field className="form__input"
                name={`${register}.size`}
                component="input"
                type="int"
@@ -34,7 +41,7 @@ export const Register = ({fields}) => (
             <option value="UVM_CVR_FIELD_VALS">UVM_CVR_FIELD_VALS</option>
             <option value="UVM_CVR_ALL">UVM_CVR_ALL</option>
         </Field>
-
+          </div>
         <FieldArray
           name={`${register}.fields`}
           component={RegisterField}
@@ -46,7 +53,7 @@ export const Register = ({fields}) => (
     </Fragment>
     ))}
         <button
-            className="initial-btn btn"
+            className="btn initial-btn"
             onClick={() => fields.push({})}
         >
             Add register

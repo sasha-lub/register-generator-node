@@ -17,17 +17,17 @@ export const RegisterModel = (props) => {
       <section>
           <div className="btn-wrapper">
               <FieldArray
-                  name="reg-model.registers"
+                  name="regModel.registers"
                   component={Register}
               />
               <FieldArray
-                  name="reg-model.blocks"
+                  name="regModel.blocks"
                   component={Block}
               />
 
               <p className="paragraph"/>
               <Field className="form__input creating"
-                     name={'reg-model.name'}
+                     name={'regModel.name'}
                      component="input"
                      type="text"
                      placeholder="Register model name"/>

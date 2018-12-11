@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const RegisterFieldComponent = ({fields}) => (
     <div>
         <button
-            className="btn"
+            className="initial-btn btn"
             onClick={() => fields.push({})}
         >
             New field
@@ -64,11 +64,13 @@ const RegisterFieldComponent = ({fields}) => (
                        placeholder="individually accessible"/>
                 <button
                 className="field-btn"
+                onClick={() => fields.push(fields.get(index))}
                 >
                 <i className="far fa-copy"/>
                 </button>
                 <button
                 className="field-btn"
+                onClick={() => fields.remove(index)}
                 >
                 <i className="far fa-trash-alt"/>
                 </button>

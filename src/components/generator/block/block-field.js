@@ -37,11 +37,13 @@ const BlockFieldComponent = ({fields}) => (
                 </Field>
                 <button
                 className="field-btn"
-                >
+                onClick={() => fields.push(fields.get(index))}
+            >
                 <i className="far fa-copy"/>
                 </button>
                 <button
                 className="field-btn"
+                onClick={() => fields.remove(index)}
                 >
                 <i className="far fa-trash-alt"/>
                 </button>

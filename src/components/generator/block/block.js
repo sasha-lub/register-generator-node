@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Field, FieldArray } from 'redux-form';
-import { Link } from 'react-router-dom';
 import { BlockField } from './block-field';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,8 +12,15 @@ export const Block = ({fields}) => (
       <fieldset className="form__section">
         <legend className="section-field__name">
           Block {index+1}
+          <button
+            className="field-btn"
+            onClick={() => fields.remove(index)}
+          >
+            <i className="far fa-times-circle"/>
+          </button>
         </legend>
-        <Field className="form__input creating"
+          <div className="section-field">
+          <Field className="form__input"
                name={`${block}.name`}
                component="input"
                type="text"
@@ -28,31 +34,34 @@ export const Block = ({fields}) => (
               <option value="UVM_CVR_FIELD_VALS">UVM_CVR_FIELD_VALS</option>
               <option value="UVM_CVR_ALL">UVM_CVR_ALL</option>
           </Field>
-          <FieldArray
-            name={`${block}.fields`}
-            component={BlockField}
-          />
-          <Field className="form__input creating"
+          </div>
+          <div className="section-field">
+          <Field className="form__input"
                  name={`${block}.map.name`}
                  component="input"
                  type="text"
-                 placeholder="name"/>
-          <Field className="form__input creating"
+                 placeholder="map name"/>
+              <Field className="form__input"
                  name={`${block}.map.offset`}
                  component="input"
                  type="text"
-                 placeholder="name"/>
-          <Field className="form__input creating"
+                 placeholder="offset"/>
+              <Field className="form__input"
                  name={`${block}.map.size`}
                  component="input"
                  type="text"
-                 placeholder="name"/>
-          <Field className="form__input creating"
+                 placeholder="map size"/>
+              <Field className="form__input"
                  name={`${block}.map.endian`}
                  component="select">
-              <option value="LITTLE_ENDIAN">LITTLE_ENDIAN</option>
-              <option value="BIG_ENDIAN">BIG_ENDIAN</option>
-          </Field>
+                  <option value="LITTLE_ENDIAN">LITTLE_ENDIAN</option>
+                  <option value="BIG_ENDIAN">BIG_ENDIAN</option>
+              </Field>
+          </div>
+          <FieldArray
+              name={`${block}.fields`}
+              component={BlockField}
+          />
       </fieldset>
     </Fragment>
   ))}

@@ -3,20 +3,22 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { render } from 'velocityjs';
+import { block} from '../../../templates';
 
 import './result.css';
 export const ResultClass = (props) => {
 
-  const generatedData = render('', values, null);
+  const { values } = props;
+  const generatedData = render(block, values, null);
 
-  localStorage.setItem(`sv-${values.env.name}`, generatedData);
+  localStorage.setItem(`sv-${values.regModel.name}`, generatedData);
 
   const handleDownload = () => {
     const file = new Blob([generatedData], { type: 'text/plain' });
 
     const element = document.createElement('a');
     element.href = URL.createObjectURL(file);
-    element.download = `name.sv`;
+    element.download = `${values.regModel.name}.sv`;
     element.click();
   };
 
