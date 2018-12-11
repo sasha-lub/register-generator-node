@@ -35,6 +35,7 @@ export const Register = ({fields}) => (
         <Field className="form__input"
                name={`${register}.coverageMode`}
                component="select">
+            <option value="">coverage mode</option>
             <option value="UVM_NO_COVERAGE">UVM_NO_COVERAGE</option>
             <option value="UVM_CVR_REG_BITS">UVM_CVR_REG_BITS</option>
             <option value="UVM_CVR_ADDR_MAP">UVM_CVR_ADDR_MAP</option>

@@ -16,26 +16,37 @@ export const RegisterModelComponent = (props) => {
     };
 
   return (
-      <section>
-          <div className="btn-wrapper">
+    <div className="btn-wrapper">
+      <div className="row">
+      <label>Give me the name: </label>
+      <Field className="form__input creating"
+             name={'regModel.name'}
+             component="input"
+             type="text"
+             placeholder="Register model name"/>
+      </div>
+      <div className="tabs-wrapper">
+        <input id="tab1" type="radio" name="tabs" className="tab-header" checked/>
+        <label htmlFor="tab1">Register</label>
+        <input id="tab2" type="radio" name="tabs" className="tab-header"/>
+        <label htmlFor="tab2">Block</label>
+
+            <div className="tab-section" id="content1">
               <FieldArray
                   name="regModel.registers"
                   component={Register}
               />
+            </div>
+            <div className="tab-section" id="content2">
               <FieldArray
                   name="regModel.blocks"
                   component={Block}
               />
-
-              <p className="paragraph"/>
-              <Field className="form__input creating"
-                     name={'regModel.name'}
-                     component="input"
-                     type="text"
-                     placeholder="Register model name"/>
+            </div>
+      </div>
+            <div className="row row-button">
               <Link to="/generator/done">
                   <button
-                        type="submit"
                         className="initial-btn btn"
                         onClick={handleGenerate}
                   >
@@ -48,12 +59,11 @@ export const RegisterModelComponent = (props) => {
               >
                   Reset model
               </button>
-
-          </div>
-      </section>
+            </div>
+</div>
   );
 };
 
 export const RegisterModel = connect(
-  validate
+  // validate
 )(RegisterModelComponent);

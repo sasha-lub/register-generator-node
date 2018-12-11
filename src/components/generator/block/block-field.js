@@ -13,22 +13,22 @@ const BlockFieldComponent = ({fields}) => (
 
         {fields.map((register, index) => (
             <div className="section-field" key={`register-${index}`}>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${register}.type`}
                        component="input"
                        type="text"
                        placeholder="type"/>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${register}.name`}
                        component="input"
                        type="text"
                        placeholder="name"/>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${register}.offset`}
                        component="input"
                        type="text"
                        placeholder="offset"/>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${register}.access`}
                        component="select"
                 >

@@ -28,6 +28,7 @@ export const Block = ({fields}) => (
           <Field className="form__input"
                  name={`${block}.coverageMode`}
                  component="select">
+              <option value="">coverage mode</option>
               <option value="UVM_NO_COVERAGE">UVM_NO_COVERAGE</option>
               <option value="UVM_CVR_REG_BITS">UVM_CVR_REG_BITS</option>
               <option value="UVM_CVR_ADDR_MAP">UVM_CVR_ADDR_MAP</option>
@@ -54,6 +55,7 @@ export const Block = ({fields}) => (
               <Field className="form__input"
                  name={`${block}.map.endian`}
                  component="select">
+                  <option value="">endian</option>
                   <option value="LITTLE_ENDIAN">LITTLE_ENDIAN</option>
                   <option value="BIG_ENDIAN">BIG_ENDIAN</option>
               </Field>

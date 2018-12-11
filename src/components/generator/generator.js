@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import {ToastContainer} from 'react-toastify';
@@ -10,7 +10,7 @@ import {resetForm,} from '../../store';
 import '../../styles/index.css';
 import './generator.css';
 
-class GeneratorClass extends Component {
+class GeneratorClass extends React.Component {
   renderContent() {
     const { pathname } = this.props.location;
 

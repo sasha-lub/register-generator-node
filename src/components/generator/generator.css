@@ -4,6 +4,10 @@
   margin: 25px 0;
 }
 
+.creating-field {
+  width: 80px;
+}
+
 .left {
   justify-content: left;
 }
@@ -40,16 +44,9 @@
   outline: none;
   border: none;
   border-bottom: solid 1px #ccc;
-  margin: 0 10px;
-  font-size: 1em;
+  margin: 0 1px;
+  font-size: 14px;
   text-align: center;
-}
-
-.form__transaction, .form__signal{
-  margin: 20px 10px;
-}
-.form__transaction .form__input, .form__signal .form__input{
-  width: 150px;
 }
 
 .page__search-result, .page__user-list {

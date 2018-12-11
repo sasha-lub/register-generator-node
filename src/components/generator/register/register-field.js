@@ -13,55 +13,62 @@ const RegisterFieldComponent = ({fields}) => (
 
         {fields.map((field, index) => (
             <div className="section-field" key={`register-field-${index}`}>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${field}.name`}
                        component="input"
                        type="text"
                        placeholder="name"/>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${field}.size`}
                        component="input"
                        type="int"
                        placeholder="size"/>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${field}.lsbPos`}
                        component="input"
                        type="text"
                        placeholder="lsb_pos"/>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${field}.access`}
                        component="select"
                 >
+                    <option>access</option>
                     <option value="RW">RW</option>
                     <option value="RO">RO</option>
                 </Field>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${field}.volatile`}
-                       component="input"
-                       type="text"
-                       placeholder="volatile"/>
-                <Field className="form__input creating"
+                       component="select">
+                  <option>volatile</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </Field>
+                <Field className="form__input creating-field"
                        name={`${field}.reset`}
                        component="input"
                        type="text"
                        placeholder="reset"/>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
                        name={`${field}.hasReset`}
-                       component="input"
-                       type="text"
-                       placeholder="has reset"/>
-                <Field className="form__input creating"
-                       name={`${field}.isRand`}
-                       component="select"
-                >
-                    <option value="1">1</option>
-                    <option value="0">0</option>
+                       component="select">
+                  <option>has reset</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
                 </Field>
-                <Field className="form__input creating"
+                <Field className="form__input creating-field"
+                       name={`${field}.isRand`}
+                       component="select">
+                  <option>is rand</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </Field>
+                <Field className="form__input creating-field"
                        name={`${field}.individuallyAccessible`}
-                       component="input"
-                       type="text"
-                       placeholder="individually accessible"/>
+                       component="select">
+                  <option>indv access</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </Field>
                 <button
                 className="field-btn"
                 onClick={() => fields.push(fields.get(index))}
