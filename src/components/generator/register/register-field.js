@@ -80,4 +80,4 @@ const RegisterFieldComponent = ({fields}) => (
     </div>
 );
 
-export const RegisterField = connect()(RegisterFieldComponent);
+  export const RegisterField = connect()(RegisterFieldComponent);

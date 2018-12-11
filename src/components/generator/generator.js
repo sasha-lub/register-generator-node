@@ -73,7 +73,13 @@ export const Generator = reduxForm({
   initialValues: {
     regModel: {
       name: 'register_model',
-      registers: [{}]
+      registers: [{
+        fields: [{
+          size: 8,
+          lsbPos: 0,
+        }]
+      }],
+      blocks: [{}]
     },
   },
 })(connect(null, mapDispatchToProps)(GeneratorClass));

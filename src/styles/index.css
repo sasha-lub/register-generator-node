@@ -44,7 +44,7 @@ fieldset {
   height: 33px;
   outline: none;
   border-radius: 2em;
-  border: solid 1px #ccc;
+  border: solid 2px #ccc;
   font-size: .9em;
   margin: 0 auto;
 }
