@@ -30,7 +30,7 @@ export const Register = ({fields}) => (
         <Field className="form__input"
                name={`${register}.size`}
                component="input"
-               type="int"
+               type="number"
                placeholder="size" />
         <Field className="form__input"
                name={`${register}.coverageMode`}

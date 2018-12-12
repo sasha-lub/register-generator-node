@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 const RegisterFieldComponent = ({fields}) => (
     <div>
         <button
-            className="initial-btn btn"
+            className="btn add-field-btn"
             onClick={() => fields.push({})}
         >
-            New field
+          + field
         </button>
 
         {fields.map((field, index) => (
@@ -21,7 +21,7 @@ const RegisterFieldComponent = ({fields}) => (
                 <Field className="form__input creating-field"
                        name={`${field}.size`}
                        component="input"
-                       type="int"
+                       type="number"
                        placeholder="size"/>
                 <Field className="form__input creating-field"
                        name={`${field}.lsbPos`}

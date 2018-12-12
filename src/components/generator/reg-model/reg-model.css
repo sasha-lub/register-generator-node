@@ -1,5 +1,6 @@
 .creating {
   width: 170px;
+  margin: 0 20px;
 }
 
 a {
@@ -21,7 +22,6 @@ a {
 }
 
 .btn-wrapper .btn {
-  width: 220px;
   margin-bottom: 20px;
 }
 
@@ -34,7 +34,7 @@ a {
 }
 
 .tab-section {
-  background-color: #ffffd2;
+  background-color:rgba(254,249,255,0.50);
   display: none;
   padding: 15px;
 }
@@ -57,17 +57,18 @@ label:before {
   margin-right: 10px;
 }
 
-label:hover {
+input:not(:checked) + label:hover {
   color: #789;
+  background-color: rgba(254,249,255,0.25);
   cursor: pointer;
 }
 
 input:not(:checked) + label {
-  background-color: #e6e9f0;
+  background-color: #cbffda;
 }
 
 input:checked + label {
-  background-color: #ffffd2;
+  background-color:rgba(254,249,255,0.50);
 }
 
 #tab1:checked ~ #content1,

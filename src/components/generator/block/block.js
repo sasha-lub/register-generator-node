@@ -8,7 +8,7 @@ import './block.css';
 export const Block = ({fields}) => (
   <div>
       {fields.map((block, index) => (
-    <Fragment>
+    <Fragment key={`block-${index}`}>
       <fieldset className="form__section">
         <legend className="section-field__name">
           Block {index+1}
@@ -19,13 +19,15 @@ export const Block = ({fields}) => (
             <i className="far fa-times-circle"/>
           </button>
         </legend>
-          <div className="section-field">
-          <Field className="form__input"
+          <div className="section-field left">
+            <label>block :</label>
+
+            <Field className="form__input creating"
                name={`${block}.name`}
                component="input"
                type="text"
                placeholder="name"/>
-          <Field className="form__input"
+          <Field className="form__input creating"
                  name={`${block}.coverageMode`}
                  component="select">
               <option value="">coverage mode</option>
@@ -36,23 +38,24 @@ export const Block = ({fields}) => (
               <option value="UVM_CVR_ALL">UVM_CVR_ALL</option>
           </Field>
           </div>
-          <div className="section-field">
-          <Field className="form__input"
+          <div className="section-field left">
+            <label>map  :</label>
+          <Field className="form__input creating"
                  name={`${block}.map.name`}
                  component="input"
                  type="text"
                  placeholder="map name"/>
-              <Field className="form__input"
+              <Field className="form__input creating"
                  name={`${block}.map.offset`}
                  component="input"
                  type="text"
                  placeholder="offset"/>
-              <Field className="form__input"
+              <Field className="form__input creating"
                  name={`${block}.map.size`}
                  component="input"
-                 type="text"
+                 type="number"
                  placeholder="map size"/>
-              <Field className="form__input"
+              <Field className="form__input creating"
                  name={`${block}.map.endian`}
                  component="select">
                   <option value="">endian</option>

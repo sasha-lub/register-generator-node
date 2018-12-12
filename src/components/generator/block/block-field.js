@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 
 const BlockFieldComponent = ({fields}) => (
     <div>
-        <button
-            className="btn"
-            onClick={() => fields.push({})}
-        >
-            Add field
-        </button>
+      <button
+        className="btn add-field-btn"
+        onClick={() => fields.push({})}
+      >
+        + field
+      </button>
 
         {fields.map((register, index) => (
             <div className="section-field" key={`register-${index}`}>

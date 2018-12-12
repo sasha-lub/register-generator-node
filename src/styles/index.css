@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
-
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background-color: #e6e9f0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #cbffda;
 }
 
 input {
@@ -23,7 +21,6 @@ fieldset {
 }
 
 .section {
-  font-family: 'Arial', sans-serif;
   color: #9d999d;
   font-size: 1.2em;
 }
@@ -31,7 +28,7 @@ fieldset {
 .heading {
   height: 70px;
   padding: 20px;
-  color: #feb386;
+  color: #b06bff;
 
   text-align: center;
   text-transform: uppercase;
@@ -40,18 +37,28 @@ fieldset {
 }
 
 .btn{
-  width: 127px;
+  width: 220px;
   height: 33px;
   outline: none;
   border-radius: 2em;
   border: solid 2px #ccc;
   font-size: .9em;
-  margin: 0 auto;
+  margin: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 .btn:hover{
-  background: #feb386;
+  background: #b06bff;
   color: #fff;
-  border-color: #feb386;
+  border-color: #b06bff;
+}
+
+.btn.add-field-btn {
+  width: 70px;
+  color: #5a5a5a;
+}
+
+.btn.add-field-btn:hover {
+  color: #fff;
 }
 
 .field-btn{
@@ -66,7 +73,7 @@ fieldset {
 }
 
 .field-btn:hover{
-  color: #feb386;
+  color: #b06bff;
 }
 
 @media (max-width: 550px) {
@@ -74,4 +81,11 @@ fieldset {
     width: 100%;
     margin: 0 10px;
   }
+}
+
+.intro {
+  background-color:rgba(254,249,255,0.50);
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 1em;
 }

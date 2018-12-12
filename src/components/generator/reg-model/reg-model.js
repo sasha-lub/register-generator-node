@@ -25,8 +25,8 @@ export const RegisterModelComponent = (props) => {
              type="text"
              placeholder="Register model name"/>
       </div>
-      <div className="tabs-wrapper">
-        <input id="tab1" type="radio" name="tabs" className="tab-header" checked/>
+      <div>
+        <input id="tab1" type="radio" name="tabs" className="tab-header" defaultChecked/>
         <label htmlFor="tab1">Register</label>
         <input id="tab2" type="radio" name="tabs" className="tab-header"/>
         <label htmlFor="tab2">Block</label>
