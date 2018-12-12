@@ -8,7 +8,7 @@ const BlockFieldComponent = ({fields}) => (
             className="btn"
             onClick={() => fields.push({})}
         >
-            Add register
+            Add field
         </button>
 
         {fields.map((register, index) => (
@@ -32,6 +32,7 @@ const BlockFieldComponent = ({fields}) => (
                        name={`${register}.access`}
                        component="select"
                 >
+                    <option value="">access</option>
                     <option value="RW">RW</option>
                     <option value="RO">RO</option>
                 </Field>
