@@ -4,17 +4,11 @@ import { Block } from '../block';
 import { Register } from '../register';
 import validate from './validate';
 
-import 'react-toastify/dist/ReactToastify.css';
 import './reg-model.css';
-import {toast} from "react-toastify";
 import {Link} from "react-router-dom";
 import connect from "react-redux/es/connect/connect";
 
 export const RegisterModelComponent = (props) => {
-    const handleGenerate = () => {
-        toast('🦄 Your file is successfully generated!');
-    };
-
   return (
     <div className="btn-wrapper">
       <div className="row">
@@ -48,7 +42,6 @@ export const RegisterModelComponent = (props) => {
               <Link to="/generator/done">
                   <button
                         className="initial-btn btn"
-                        onClick={handleGenerate}
                   >
                       Generate model
                   </button>

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
-import {ToastContainer} from 'react-toastify';
 
 import {Block, Register, RegisterModel, Result,} from './';
 
@@ -57,7 +56,6 @@ class GeneratorClass extends React.Component {
         <section className="page section">
           {this.renderContent()}
         </section>
-        <ToastContainer />
       </main>
     );
   }

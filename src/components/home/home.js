@@ -10,7 +10,7 @@ export class Home extends Component {
           <header className="heading">
             <h2>Register Model Generator</h2>
           </header>
-          <div className="intro">
+          <div className="text-block">
           <p>Hey there!</p>
 
           <p>This app allows to avoid painstaking manual work - declaring numerous registers and memory blocks, protects you from possible syntax error</p>

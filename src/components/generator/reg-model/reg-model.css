@@ -34,7 +34,7 @@ a {
 }
 
 .tab-section {
-  background-color:rgba(254,249,255,0.50);
+  background-color:rgba(232, 200, 239, 0.5);
   display: none;
   padding: 15px;
 }
@@ -59,16 +59,16 @@ label:before {
 
 input:not(:checked) + label:hover {
   color: #789;
-  background-color: rgba(254,249,255,0.25);
+  background-color: rgba(232, 200, 239, 0.25);
   cursor: pointer;
 }
 
 input:not(:checked) + label {
-  background-color: #cbffda;
+  background-color: #eafff2;
 }
 
 input:checked + label {
-  background-color:rgba(254,249,255,0.50);
+  background-color:rgba(232, 200, 239, 0.5);
 }
 
 #tab1:checked ~ #content1,

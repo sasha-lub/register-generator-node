@@ -3,7 +3,6 @@ import { Field, FieldArray } from 'redux-form';
 
 import { RegisterField } from './register-field';
 
-import 'react-toastify/dist/ReactToastify.css';
 import './register.css';
 
 export const Register = ({fields}) => (

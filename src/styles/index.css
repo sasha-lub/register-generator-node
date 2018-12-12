@@ -2,11 +2,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #cbffda;
+  background-color: #eafff2;
 }
 
 input {
   background: none;
+  color: #6e6a6e;
+}
+
+input [type=select]{
+  border: none;
 }
 
 fieldset {
@@ -21,7 +26,7 @@ fieldset {
 }
 
 .section {
-  color: #9d999d;
+  color: #8c888c;
   font-size: 1.2em;
 }
 
@@ -41,9 +46,11 @@ fieldset {
   height: 33px;
   outline: none;
   border-radius: 2em;
-  border: solid 2px #ccc;
+  background: #eedeff;
+  border: solid 2px #c092ff;
   font-size: .9em;
   margin: 20px;
+  color: #646065;
   font-family: 'Poppins', sans-serif;
 }
 .btn:hover{
@@ -59,6 +66,7 @@ fieldset {
 
 .btn.add-field-btn:hover {
   color: #fff;
+  cursor: pointer;
 }
 
 .field-btn{
@@ -74,6 +82,7 @@ fieldset {
 
 .field-btn:hover{
   color: #b06bff;
+  cursor: pointer;
 }
 
 @media (max-width: 550px) {
@@ -83,9 +92,10 @@ fieldset {
   }
 }
 
-.intro {
-  background-color:rgba(254,249,255,0.50);
+.text-block {
+  background-color:rgba(254,249,255,0.75);
   padding: 25px;
   margin: 25px 0;
   border-radius: 1em;
+  font-size: 0.9em;
 }

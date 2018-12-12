@@ -31,12 +31,12 @@ export const ResultClass = (props) => {
         >
           <i className="fas fa-file-code icon"/>
         </button>
-        <p className="dowload-text">Press the icon to download</p>
+        <p className="download-text">Press the icon to download</p>
       </section>
 
       <section className="download-wrapper">
-        <p className="dowload-text">Quick view</p>
-        <pre>
+        <p className="download-text">Quick view</p>
+        <pre className="text-block">
           {generatedData}
         </pre>
       </section>

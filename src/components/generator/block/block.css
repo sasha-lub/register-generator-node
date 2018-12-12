@@ -2,15 +2,37 @@
   width: 70px;
 }
 
-/*.section-field__name {*/
-  /*color: #92ffd0;*/
-/*}*/
+select {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
 
-/*.btn:hover{*/
-  /*background: #c092ff;*/
-  /*border-color: #a664ff;*/
-/*}*/
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
 
-/*.field-btn:hover{*/
-  /*color: #a664ff;*/
-/*}*/
+select option {
+  color: #353135;
+  padding: 8px 16px;
+  border: none;
+}
+
+select option:hover {
+  position: absolute;
+  background-color: #c092ff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}

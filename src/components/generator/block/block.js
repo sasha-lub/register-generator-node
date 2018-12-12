@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Field, FieldArray } from 'redux-form';
 import { BlockField } from './block-field';
 
-import 'react-toastify/dist/ReactToastify.css';
 import './block.css';
 
 export const Block = ({fields}) => (
