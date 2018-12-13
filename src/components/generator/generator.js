@@ -71,12 +71,7 @@ export const Generator = reduxForm({
   initialValues: {
     regModel: {
       name: 'register_model',
-      registers: [{
-        fields: [{
-          size: 8,
-          lsbPos: 0,
-        }]
-      }],
+      registers: [{}],
       blocks: [{}]
     },
   },

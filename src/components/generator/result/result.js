@@ -41,11 +41,18 @@ export const ResultClass = (props) => {
         </pre>
       </section>
 
+      <div className="row row-button">
       <Link to="/generator/env">
         <button className="initial-btn btn btn_large" onClick={props.resetForm}>
           Generate a new one
         </button>
       </Link>
+      <Link to="/generator">
+        <button className="initial-btn btn btn_large" >
+          Go back and modify
+        </button>
+      </Link>
+      </div>
     </Fragment>
   );
 };

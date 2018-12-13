@@ -58,8 +58,8 @@ export const Block = ({fields}) => (
                  name={`${block}.map.endian`}
                  component="select">
                   <option value="">endian</option>
-                  <option value="LITTLE_ENDIAN">LITTLE_ENDIAN</option>
-                  <option value="BIG_ENDIAN">BIG_ENDIAN</option>
+                  <option value="LITTLE_ENDIAN">UVM_LITTLE_ENDIAN</option>
+                  <option value="BIG_ENDIAN">UVM_BIG_ENDIAN</option>
               </Field>
           </div>
           <FieldArray
