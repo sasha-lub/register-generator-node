@@ -33,8 +33,16 @@ const RegisterFieldComponent = ({fields}) => (
                        component="select"
                 >
                     <option>access</option>
-                    <option value="RW">RW</option>
-                    <option value="RO">RO</option>
+                  <option value="RW">RW</option>
+                  <option value="RO">RO</option>
+                  <option value="RO">WO</option>
+                  <option value="RO">W1</option>
+                  <option value="RC">RC</option>
+                  <option value="RS">RS</option>
+                  <option value="WRC">WRC</option>
+                  <option value="WRS">WRS</option>
+                  <option value="WC">WC</option>
+                  <option value="WS">WS</option>
                 </Field>
                 <Field className="form__input creating-field"
                        name={`${field}.volatile`}

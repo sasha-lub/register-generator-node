@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import './archive.css';
 
 export class Archive extends Component {
-  getAllData = () => {
-    return Object.keys(localStorage).filter(value => value.includes('sv-'));
-  }
+  getSvData = () => {
+    return Object.keys(localStorage).filter(value => value.startsWith('sv-'));
+  };
 
   handleDownload = (name) => {
     const data = localStorage.getItem(name);
@@ -15,11 +15,11 @@ export class Archive extends Component {
     element.href = URL.createObjectURL(file);
     element.download = `${name.slice(3)}.sv`;
     element.click();
-  }
+  };
 
   render() {
-    const files = this.getAllData();
-    const filesList = files.map((name, index) => (
+    const files = this.getSvData();
+    const filesList = files.map((name) => (
       <li 
         key="name"
         onClick={() => this.handleDownload(name)}

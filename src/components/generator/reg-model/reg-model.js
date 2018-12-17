@@ -2,7 +2,6 @@ import React from 'react';
 import { Field, FieldArray } from 'redux-form';
 import { Block } from '../block';
 import { Register } from '../register';
-import validate from './validate';
 
 import './reg-model.css';
 import {Link} from "react-router-dom";
@@ -17,8 +16,14 @@ export const RegisterModelComponent = (props) => {
              name={'regModel.name'}
              component="input"
              type="text"
-             placeholder="Register model name"/>
+             placeholder="model name"/>
+      <Field className="form__input creating"
+             name={'regModel.package'}
+             component="input"
+             type="text"
+             placeholder="package"/>
       </div>
+
       <div>
         <input id="tab1" type="radio" name="tabs" className="tab-header" defaultChecked/>
         <label htmlFor="tab1">Register</label>

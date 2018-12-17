@@ -58,10 +58,31 @@ export const Block = ({fields}) => (
                  name={`${block}.map.endian`}
                  component="select">
                   <option value="">endian</option>
-                  <option value="LITTLE_ENDIAN">UVM_LITTLE_ENDIAN</option>
-                  <option value="BIG_ENDIAN">UVM_BIG_ENDIAN</option>
+                  <option value="UVM_NO_ENDIAN">UVM_NO_ENDIAN</option>
+                  <option value="UVM_LITTLE_ENDIAN">UVM_LITTLE_ENDIAN</option>
+                  <option value="UVM_BIG_ENDIAN">UVM_BIG_ENDIAN</option>
+                  <option value="UVM_LITTLE_FIFO">UVM_LITTLE_FIFO</option>
+                  <option value="UVM_BIG_FIFO">UVM_BIG_FIFO</option>
               </Field>
           </div>
+        <div className="section-field left">
+          <label>mem  :</label>
+          <Field className="form__input creating"
+                 name={`${block}.mem.name`}
+                 component="input"
+                 type="text"
+                 placeholder="mem name"/>
+          <Field className="form__input creating"
+                 name={`${block}.mem.offset`}
+                 component="input"
+                 type="text"
+                 placeholder="offset"/>
+          <Field className="form__input creating"
+                 name={`${block}.mem.size`}
+                 component="input"
+                 type="number"
+                 placeholder="map size"/>
+        </div>
           <FieldArray
               name={`${block}.fields`}
               component={BlockField}

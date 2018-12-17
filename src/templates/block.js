@@ -1,4 +1,9 @@
 export const block = `
+#if($regModel.package)package $regModel.package;#end
+
+import uvm_pkg::*;
+\`include "uvm_macros.svh"
+
 #foreach($register in $regModel.registers)
 class $register.name extends uvm_reg;
 \`uvm_object_utils( $register.name )
@@ -36,9 +41,11 @@ endclass: $register.name
 class $block.name extends uvm_reg_block;
 \`uvm_object_utils( $block.name )
 
-    #foreach($register in $block.registers)
-    rand $register.type $register.name;
+    #foreach($field in $block.fields)
+    rand $field.type $field.name;
     #end
+
+#if($block.mem.name)uvm_mem $block.mem.name;#end
 
 uvm_reg_map $block.map.name;
 
@@ -48,21 +55,32 @@ endfunction: new
 
 virtual function void build();
 
-    #foreach($register in $block.registers)
-        $register.name = $register.type::type_id::create("$register.name" );
+    #foreach($field in $block.fields)
+        $field.name = $field.type::type_id::create("$field.name" );
         `+'${register.name}'+`.configure( .blk_parent( this ) );
         `+'${register.name}'+`.build();
     #end
-
+    
+    #if($block.mem.name)
+    $block.mem.name = new("$block.mem.name", $block.mem.offset, $block.mem.size);
+    `+'${block.mem.name}'+`.add_hdl_path_slice("$block.mem.name", 0, $block.mem.size);
+    `+'${block.mem.name}'+`.configure( .parent(this) );
+    #end
+    
     $block.map.name = create_map( .name( "$block.map.name" ),
                                   .base_addr( $block.map.offset ),
                                   .n_bytes( $block.map.size ),
-                                  .endian($block.map.endian);
+                                  .endian( $block.map.endian );
+    default_map = $block.map.name;
 
-    #foreach($register in $block.registers)
-        `+'${block.map.name}'+`.add_reg( .rg( $register.name ),
-                                  .offset( $register.offset ),
-                                  .rights( $register.access ) );
+    #foreach($field in $block.fields)
+        `+'${block.map.name}'+`.add_reg( .rg( $field.name ),
+                                  .offset( $field.offset ),
+                                  .rights( $field.access ) );
+    #end
+    
+    #if($block.mem.name)
+    `+'${block.map.name}'+`.add_mem($block.mem.name, .offset($block.mem.offset)));
     #end
 
 lock_model();

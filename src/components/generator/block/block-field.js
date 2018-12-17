@@ -1,57 +1,81 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { Field, getFormValues } from 'redux-form';
 import { connect } from 'react-redux';
 
-const BlockFieldComponent = ({fields}) => (
+const BlockFieldComponent = ({fields, fieldTypes}) => {
+  return (
     <div>
       <button
         className="btn add-field-btn"
         onClick={() => fields.push({})}
       >
-        + field
+        + reg/block
       </button>
 
-        {fields.map((register, index) => (
-            <div className="section-field" key={`register-${index}`}>
-                <Field className="form__input creating-field"
-                       name={`${register}.type`}
-                       component="input"
-                       type="text"
-                       placeholder="type"/>
-                <Field className="form__input creating-field"
-                       name={`${register}.name`}
-                       component="input"
-                       type="text"
-                       placeholder="name"/>
-                <Field className="form__input creating-field"
-                       name={`${register}.offset`}
-                       component="input"
-                       type="text"
-                       placeholder="offset"/>
-                <Field className="form__input creating-field"
-                       name={`${register}.access`}
-                       component="select"
-                >
-                    <option value="">access</option>
-                    <option value="RW">RW</option>
-                    <option value="RO">RO</option>
-                </Field>
-                <button
-                className="field-btn"
-                onClick={() => fields.push(fields.get(index))}
-            >
-                <i className="far fa-copy"/>
-                </button>
-                <button
-                className="field-btn"
-                onClick={() => fields.remove(index)}
-                >
-                <i className="far fa-trash-alt"/>
-                </button>
-            </div>
+      {fields.map((register, index) => (
+        <div className="section-field" key={`register-${index}`}>
+          <Field className="form__input creating-field"
+                 name={`${register}.type`}
+                 component="select">
+            {
+              fieldTypes.map((type) => {
+                return (<option value={type}>{type}</option>)
+              })
+            }
+          </Field>
+          <Field className="form__input creating-field"
+                 name={`${register}.name`}
+                 component="input"
+                 type="text"
+                 placeholder="name"/>
+          <Field className="form__input creating-field"
+                 name={`${register}.offset`}
+                 component="input"
+                 type="text"
+                 placeholder="offset"/>
+          <Field className="form__input creating-field"
+                 name={`${register}.access`}
+                 component="select"
+          >
+            <option value="">access</option>
+            <option value="RW">RW</option>
+            <option value="RO">RO</option>
+            <option value="RO">WO</option>
+            <option value="RO">W1</option>
+            <option value="RC">RC</option>
+            <option value="RS">RS</option>
+            <option value="WRC">WRC</option>
+            <option value="WRS">WRS</option>
+            <option value="WC">WC</option>
+            <option value="WS">WS</option>
+          </Field>
+          <button
+            className="field-btn"
+            onClick={() => fields.push(fields.get(index))}
+          >
+            <i className="far fa-copy"/>
+          </button>
+          <button
+            className="field-btn"
+            onClick={() => fields.remove(index)}
+          >
+            <i className="far fa-trash-alt"/>
+          </button>
+        </div>
 
-        ))}
+      ))}
     </div>
-);
+  );
+};
 
-export const BlockField = connect()(BlockFieldComponent);
+export const BlockField = connect(
+  state => {
+    const registerModelForm = getFormValues('generatorData')(state).regModel;
+    const registerTypes = registerModelForm.registers.map((register) => register.name);
+    const blockTypes = registerModelForm.blocks.map((block) => block.name);
+    const fieldTypes = registerTypes.concat(blockTypes);
+    return {
+      fieldTypes
+    };
+  }
+)(BlockFieldComponent);
