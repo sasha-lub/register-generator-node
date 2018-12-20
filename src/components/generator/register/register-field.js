@@ -77,6 +77,11 @@ const RegisterFieldComponent = ({fields}) => (
                   <option value="1">1</option>
                   <option value="0">0</option>
                 </Field>
+                [<Field className="form__input creating-field"
+                     name={`${field}.amount`}
+                     component="input"
+                     type="number"
+                     placeholder="amount"/>]
                 <button
                 className="field-btn"
                 onClick={() => fields.push(fields.get(index))}

@@ -12,11 +12,12 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
         + reg/block
       </button>
 
-      {fields.map((register, index) => (
-        <div className="section-field" key={`register-${index}`}>
+      {fields.map((field, index) => (
+        <div className="section-field" key={`block-field-${index}`}>
           <Field className="form__input creating-field"
-                 name={`${register}.type`}
+                 name={`${field}.type`}
                  component="select">
+            <option value="">type</option>
             {
               fieldTypes.map((type) => {
                 return (<option value={type}>{type}</option>)
@@ -24,17 +25,17 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
             }
           </Field>
           <Field className="form__input creating-field"
-                 name={`${register}.name`}
+                 name={`${field}.name`}
                  component="input"
                  type="text"
                  placeholder="name"/>
           <Field className="form__input creating-field"
-                 name={`${register}.offset`}
+                 name={`${field}.offset`}
                  component="input"
                  type="text"
                  placeholder="offset"/>
           <Field className="form__input creating-field"
-                 name={`${register}.access`}
+                 name={`${field}.access`}
                  component="select"
           >
             <option value="">access</option>
@@ -49,6 +50,11 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
             <option value="WC">WC</option>
             <option value="WS">WS</option>
           </Field>
+          [<Field className="form__input creating-field"
+                  name={`${field}.amount`}
+                  component="input"
+                  type="number"
+                  placeholder="amount"/>]
           <button
             className="field-btn"
             onClick={() => fields.push(fields.get(index))}
