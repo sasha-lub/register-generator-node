@@ -14,6 +14,10 @@ input [type=select]{
   border: none;
 }
 
+input.name:not(:placeholder-shown){
+    text-transform: uppercase;
+}
+
 fieldset {
   display: flex;
   background: #fff;

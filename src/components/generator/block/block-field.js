@@ -24,7 +24,7 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
               })
             }
           </Field>
-          <Field className="form__input creating-field"
+          <Field className="form__input creating-field name"
                  name={`${field}.name`}
                  component="input"
                  type="text"

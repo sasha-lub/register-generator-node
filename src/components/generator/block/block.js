@@ -21,7 +21,7 @@ export const Block = ({fields}) => (
           <div className="section-field left">
             <label>block :</label>
 
-            <Field className="form__input creating"
+            <Field className="form__input creating name"
                name={`${block}.name`}
                component="input"
                type="text"
@@ -39,7 +39,7 @@ export const Block = ({fields}) => (
           </div>
           <div className="section-field left">
             <label>map  :</label>
-          <Field className="form__input creating"
+          <Field className="form__input creating name"
                  name={`${block}.map.name`}
                  component="input"
                  type="text"
@@ -67,7 +67,7 @@ export const Block = ({fields}) => (
           </div>
         <div className="section-field left">
           <label>mem  :</label>
-          <Field className="form__input creating"
+          <Field className="form__input creating name"
                  name={`${block}.mem.name`}
                  component="input"
                  type="text"

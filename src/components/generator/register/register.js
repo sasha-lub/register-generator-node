@@ -21,7 +21,7 @@ export const Register = ({fields}) => (
           </button>
         </legend>
           <div className="section-field">
-        <Field className="form__input"
+        <Field className="form__input name"
                name={`${register}.name`}
                component="input"
                type="text"

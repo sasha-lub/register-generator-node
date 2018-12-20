@@ -13,7 +13,7 @@ const RegisterFieldComponent = ({fields}) => (
 
         {fields.map((field, index) => (
             <div className="section-field" key={`register-field-${index}`}>
-                <Field className="form__input creating-field"
+                <Field className="form__input creating-field name"
                        name={`${field}.name`}
                        component="input"
                        type="text"
