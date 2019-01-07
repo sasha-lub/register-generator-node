@@ -12,6 +12,14 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
         + reg/block
       </button>
 
+      <div className="section-field left">
+        <label className="form__input__label_block">type</label>
+        <label className="form__input__label_block">name</label>
+        <label className="form__input__label_block">offset</label>
+        <label className="form__input__label_block">access</label>
+        <label className="form__input__label_block">dimension</label>
+      </div>
+      
       {fields.map((field, index) => (
         <div className="section-field" key={`block-field-${index}`}>
           <Field className="form__input creating-field"
@@ -51,10 +59,10 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
             <option value="WS">WS</option>
           </Field>
           [<Field className="form__input creating-field"
-                  name={`${field}.amount`}
+                  name={`${field}.dimension`}
                   component="input"
                   type="number"
-                  placeholder="amount"/>]
+                  placeholder="dimension"/>]
           <button
             className="field-btn"
             onClick={() => fields.push(fields.get(index))}

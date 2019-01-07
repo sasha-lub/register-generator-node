@@ -11,6 +11,19 @@ const RegisterFieldComponent = ({fields}) => (
           + field
         </button>
 
+      <div className="section-field left">
+        <label className="form__input__label_reg">name</label>
+        <label className="form__input__label_reg">size</label>
+        <label className="form__input__label_reg">lsbPos</label>
+        <label className="form__input__label_reg">access</label>
+        <label className="form__input__label_reg">volatile</label>
+        <label className="form__input__label_reg">reset</label>
+        <label className="form__input__label_reg">hasReset</label>
+        <label className="form__input__label_reg">isRand</label>
+        <label className="form__input__label_reg">indvAccess</label>
+        <label className="form__input__label_reg">dimension</label>
+      </div>
+
         {fields.map((field, index) => (
             <div className="section-field" key={`register-field-${index}`}>
                 <Field className="form__input creating-field name"
@@ -78,10 +91,10 @@ const RegisterFieldComponent = ({fields}) => (
                   <option value="0">0</option>
                 </Field>
                 [<Field className="form__input creating-field"
-                     name={`${field}.amount`}
+                     name={`${field}.dimension`}
                      component="input"
                      type="number"
-                     placeholder="amount"/>]
+                     placeholder="dimension"/>]
                 <button
                 className="field-btn"
                 onClick={() => fields.push(fields.get(index))}
