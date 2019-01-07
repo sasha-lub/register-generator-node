@@ -13,7 +13,7 @@ class $register.name extends uvm_reg;
     \`uvm_object_utils($register.name)
 
     #foreach($field in $register.fields)
-    #if($field.isRand == "1")rand#end uvm_reg_field $field.name#if($field.amount && $field.amount > 1)[$field.amount]#end ;
+    #if($field.isRand == "1")rand#end uvm_reg_field $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end ;
     #end
 
     function new(string name = "$register.name");
@@ -25,8 +25,8 @@ class $register.name extends uvm_reg;
     virtual function void build();
 
         #foreach($field in $register.fields)
-        #if($field.amount && $field.amount > 1)
-        for(int i = 0; i < $field.amount; i++)
+        #if($field.dimension && $field.dimension > 1)
+        for(int i = 0; i < $field.dimension; i++)
         begin
             $field.name[i] = uvm_reg_field::type_id::create(\\$sformatf("$field.name%0h", i));
             `+'${field.name}[i]'+`.configure(
@@ -66,7 +66,7 @@ class $block.name extends uvm_reg_block;
 \`uvm_object_utils($block.name)
 
     #foreach($field in $block.fields)
-    rand $field.type $field.name#if($field.amount && $field.amount > 1)[$field.amount]#end;
+    rand $field.type $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end;
     #end
 
     #if($block.mem.name)uvm_mem $block.mem.name;#end
@@ -81,9 +81,9 @@ class $block.name extends uvm_reg_block;
 
         #foreach($field in $block.fields)
 
-          #if($field.amount && $field.amount > 1)
+          #if($field.dimension && $field.dimension > 1)
 
-            for (int i = 0; i < $field.amount; i++)
+            for (int i = 0; i < $field.dimension; i++)
             begin
               $field.name[i] = $field.type::type_id::create(\\$sformatf("$field.name%0h", i));
               `+'${field.name}[i]'+`.configure(.blk_parent(this));
@@ -113,8 +113,8 @@ class $block.name extends uvm_reg_block;
         default_map = $block.map.name;
 
         #foreach($field in $block.fields)
-        #if($field.amount && $field.amount > 1)
-        for (int i = 0; i < $field.amount; i++)
+        #if($field.dimension && $field.dimension > 1)
+        for (int i = 0; i < $field.dimension; i++)
         begin
         `+'${block.map.name}'+`.add_reg(.rg($field.name[i]),
                                   .offset(i), // todo: field offset

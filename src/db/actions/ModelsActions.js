@@ -42,6 +42,9 @@ const ModelActions = {
 
     createModel(model) {
       api.createModel(model)
+        .then(() =>
+          this.loadModels()
+        )
         .catch(err =>
             console.error(err)
         );

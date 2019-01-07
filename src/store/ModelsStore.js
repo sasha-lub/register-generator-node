@@ -54,13 +54,11 @@ AppDispatcher.register(function (action) {
     }
 
     case AppConstants.LOAD_MODELS_SUCCESS: {
-      console.log('LOAD_MODELS_SUCCESS start');
       _isLoading = false;
       _models = action.models.map(formatModel);
       _loadingError = null;
 
       TasksStore.emitChange();
-      console.log('LOAD_MODELS_SUCCESS end');
       break;
     }
 

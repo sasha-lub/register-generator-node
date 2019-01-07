@@ -12,7 +12,7 @@ const RegisterModelSchema = new mongoose.Schema({
       size : Number,
       isRand : Number,
       access : String,
-      amount : Number,
+      dimension : Number,
       reset : Number,
       volatile : Number,
       lsbPos : Number,
@@ -38,7 +38,7 @@ const RegisterModelSchema = new mongoose.Schema({
       name : String,
       offset : String,
       access : String,
-      amount : Number,
+      dimension : Number,
     }]
   }]
 

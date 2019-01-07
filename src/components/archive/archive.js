@@ -4,14 +4,14 @@ import './archive.css';
 import ModelsStore from "../../store/ModelsStore";
 import ModelsActions from "../../db/actions/ModelsActions";
 import api from "../../db/api";
+import {load} from "../generator/account";
 
 export class Archive extends Component {
 
-  handleLoad = (name) => {
+  handleLoad = (state = {}, name) => {
     ModelsActions.loadSingleModel(name,
       function () {
-        const model = ModelsStore.getSelectedModel();
-        console.log(model);
+        load(ModelsStore.getSelectedModel());
       }
   );
     // const data = localStorage.getItem(name);
