@@ -4,26 +4,13 @@ import { connect } from 'react-redux';
 
 const RegisterFieldComponent = ({fields}) => (
     <div>
-        <button
+      <button
             className="btn add-field-btn"
             onClick={() => fields.push({})}
         >
           + field
         </button>
-
-      <div className="section-field left">
-        <label className="form__input__label_reg">name</label>
-        <label className="form__input__label_reg">size</label>
-        <label className="form__input__label_reg">lsbPos</label>
-        <label className="form__input__label_reg">access</label>
-        <label className="form__input__label_reg">volatile</label>
-        <label className="form__input__label_reg">reset</label>
-        <label className="form__input__label_reg">hasReset</label>
-        <label className="form__input__label_reg">isRand</label>
-        <label className="form__input__label_reg">indvAccess</label>
-        <label className="form__input__label_reg">dimension</label>
-      </div>
-
+      {renderLabels(fields)}
         {fields.map((field, index) => (
             <div className="section-field" key={`register-field-${index}`}>
                 <Field className="form__input creating-field name"
@@ -112,5 +99,22 @@ const RegisterFieldComponent = ({fields}) => (
         ))}
     </div>
 );
+
+  function renderLabels(fields) {
+    if (fields.length > 0) {
+      return <div className="section-field left">
+        <label className="form__input__label_reg">name</label>
+        <label className="form__input__label_reg">size</label>
+        <label className="form__input__label_reg">lsbPos</label>
+        <label className="form__input__label_reg">access</label>
+        <label className="form__input__label_reg">volatile</label>
+        <label className="form__input__label_reg">reset</label>
+        <label className="form__input__label_reg">hasReset</label>
+        <label className="form__input__label_reg">isRand</label>
+        <label className="form__input__label_reg">indvAccess</label>
+        <label className="form__input__label_reg">dimension</label>
+      </div>
+    }
+  }
 
   export const RegisterField = connect()(RegisterFieldComponent);

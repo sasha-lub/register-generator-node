@@ -12,13 +12,7 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
         + reg/block
       </button>
 
-      <div className="section-field left">
-        <label className="form__input__label_block">type</label>
-        <label className="form__input__label_block">name</label>
-        <label className="form__input__label_block">offset</label>
-        <label className="form__input__label_block">access</label>
-        <label className="form__input__label_block">dimension</label>
-      </div>
+      {renderLabels(fields)}
       
       {fields.map((field, index) => (
         <div className="section-field" key={`block-field-${index}`}>
@@ -81,6 +75,19 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
     </div>
   );
 };
+
+function renderLabels(fields) {
+  if (fields.length > 0) {
+    return <div className="section-field left">
+      <label className="form__input__label_block">type</label>
+      <label className="form__input__label_block">name</label>
+      <label className="form__input__label_block">offset</label>
+      <label className="form__input__label_block">access</label>
+      <label className="form__input__label_block">dimension</label>
+    </div>
+
+  }
+}
 
 export const BlockField = connect(
   state => {

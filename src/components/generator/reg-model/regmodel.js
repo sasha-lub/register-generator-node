@@ -27,48 +27,43 @@ export const RegisterModelComponent = (props) => {
         <label>Generate stubs: </label>
         <label className="check-box-label" htmlFor="generateAgent">
           Agent
-        <Field name="generateAgent"
+        <Field name={'regModel.generateAgent'}
                id="generateAgent"
                component="input"
                type="checkbox"/>
         </label>
         <label className="check-box-label" htmlFor="generateEnv">
           Env
-          <Field name="generateEnv"
+          <Field name={'regModel.generateEnv'}
                  id="generateEnv"
-                 
                  component="input"
                  type="checkbox"/>
         </label>
         <label className="check-box-label" htmlFor="generateDriver">
           Driver
-          <Field name="generateDriver"
+          <Field name={'regModel.generateDriver'}
                  id="generateDriver"
-                 
                  component="input"
                  type="checkbox"/>
         </label>
         <label className="check-box-label" htmlFor="generateAdapter">
           Adapter
-          <Field name="generateAdapter"
+          <Field name={'regModel.generateAdapter'}
                  id="generateAdapter"
-                 
                  component="input"
                  type="checkbox"/>
         </label>
         <label className="check-box-label" htmlFor="generateTransaction">
         Transaction
-        <Field name="generateTransaction"
+        <Field name={'regModel.generateTransaction'}
                id="generateTransaction"
-               
                component="input"
                type="checkbox"/>
       </label>
         <label className="check-box-label" htmlFor="generateSequence">
           Sequence
-          <Field name="generateSequence"
+          <Field name={'regModel.generateSequence'}
                  id="generateSequence"
-                 
                  component="input"
                  type="checkbox"/>
         </label>
