@@ -135,4 +135,92 @@ class $block.name extends uvm_reg_block;
 
 endclass: $block.name
 #end
+
+#if($regModel.generateAgent)
+  //////////////////////////////////
+  // This is AGENT stub
+  //////////////////////////////////
+
+class `+'${regModel.name}_agent'+` extends uvm_agent;
+   \`uvm_component_utils( `+'${regModel.name}_agent'+` )
+ 
+   function new( string name, uvm_component parent );
+      super.new( name, parent );
+   endfunction: new
+ 
+   function void build_phase( uvm_phase phase );
+      super.build_phase( phase );
+
+   endfunction: build_phase
+ 
+   function void connect_phase( uvm_phase phase );
+
+   endfunction: connect_phase
+endclass: `+'${regModel.name}_agent'+`
+#end
+
+#if($regModel.generateAdapter)
+
+  //////////////////////////////////
+  // This is ADAPTER stub
+  //////////////////////////////////
+
+class `+'${regModel.name}_adapter'+` extends uvm_reg_adapter;
+   \`uvm_object_utils( `+'${regModel.name}_adapter'+` )
+ 
+   function new( string name = "" );
+      super.new( name );
+      supports_byte_enable = 0;
+      provides_responses   = 0;
+   endfunction: new
+ 
+   virtual function uvm_sequence_item reg2bus( const ref uvm_reg_bus_op rw );
+
+   endfunction: reg2bus
+ 
+   virtual function void bus2reg( uvm_sequence_item bus_item,
+                                  ref uvm_reg_bus_op rw );
+
+   endfunction: bus2reg
+ 
+endclass: `+'${regModel.name}_adapter'+`
+
+#end
+
+#if($regModel.generateEnv)
+
+  //////////////////////////////////
+  // This is ENV stub
+  //////////////////////////////////
+  
+  class `+'${regModel.name}_env'+` extends uvm_env;
+    \`uvm_component_utils(`+'${regModel.name}_env'+`)
+ 
+    
+  endclass: `+'${regModel.name}_env'+`
+#end
+
+#if($regModel.generateSequence)
+
+  //////////////////////////////////
+  // This is SEQUENCE stub
+  //////////////////////////////////
+
+  class `+'${regModel.name}_sequence'+` extends uvm_sequence;
+    \`uvm_object_utils(`+'${regModel.name}_sequence'+`)
+
+
+    
+  endclass `+'${regModel.name}_sequence'+`
+#end
+
+#if($regModel.generateDriver)
+
+  //////////////////////////////////
+  // This is DRIVER stub
+  //////////////////////////////////
+
+
+#end
+
 `;

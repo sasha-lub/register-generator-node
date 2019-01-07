@@ -1,1 +1,1 @@
-export * from './reg-model';
+export * from './regmodel';

@@ -75,3 +75,8 @@ input:checked + label {
 #tab2:checked ~ #content2 {
   display: block;
 }
+
+.check-box-label {
+  font-size: 12pt;
+  color : #6e6a6e;
+}
