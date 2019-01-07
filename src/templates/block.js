@@ -13,7 +13,7 @@ class $register.name extends uvm_reg;
     \`uvm_object_utils($register.name)
 
     #foreach($field in $register.fields)
-    #if($field.isRand == "1")rand#end uvm_reg_field $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end ;
+    rand uvm_reg_field $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end ;
     #end
 
     function new(string name = "$register.name");

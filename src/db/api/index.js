@@ -15,7 +15,7 @@ export default {
       return axios.get(`${apiPrefix}/models/${name}`);
     },
 
-    deleteModel(name) {
-        return axios.delete(`${apiPrefix}/models/${name}`);
+    deleteModel(id) {
+      return axios.delete(`${apiPrefix}/models/${id}`);
     }
 }

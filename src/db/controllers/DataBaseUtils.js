@@ -22,8 +22,8 @@ function updateModel(name, data) {
   return RegisterModel.findOne({name : name}).update(data);
 }
 
-function deleteModel(name) {
-  return RegisterModel.findOne({name : name}).remove();
+function deleteModel(id) {
+  return RegisterModel.findByIdAndDelete(id);
 }
 
 function createModel(data) {

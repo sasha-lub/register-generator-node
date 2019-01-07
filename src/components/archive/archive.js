@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './archive.css';
 import ModelsStore from "../../store/ModelsStore";
 import ModelsActions from "../../db/actions/ModelsActions";
-import api from "../../db/api";
 import {load} from "../generator/account";
 
 export class Archive extends Component {
@@ -24,13 +23,19 @@ export class Archive extends Component {
   };
 
   formatModel = (model) => {
-    return <li
-      key="name"
-      onClick={() => this.handleLoad(model.name)}
-      className="file-name"
-      title="download file"
-    >
+    return <li id={model.id}>
+      <span key="name"
+            onClick={() => this.handleLoad(model.name)}
+            className="file-name"
+            title="download file">
       {model.name}
+      </span>
+      <button
+        className="field-btn"
+        onClick={() => ModelsActions.deleteModel(model.id)}
+      >
+        <i className="far fa-trash-alt"/>
+      </button>
     </li>
   };
 

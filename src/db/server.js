@@ -24,6 +24,10 @@ app.get('/models/:name', (req, res) => {
   db.findByName(req.params.name).then(data => res.send(data));
 });
 
+app.delete('/models/:id', (req, res) => {
+  db.deleteModel(req.params.id).then(data => res.send(data));
+});
+
 const server = app.listen(PORT, () => {
   console.log('SERVER STARTED!');
 });
