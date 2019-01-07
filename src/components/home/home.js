@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
 import '../../styles/index.css';
+import ModelsActions from "../../db/actions/ModelsActions";
 
 export class Home extends Component {
+  componentWillMount() {
+    ModelsActions.loadModels();
+  }
+
   render() {
     return (
       <main className="main">

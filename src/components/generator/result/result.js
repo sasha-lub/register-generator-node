@@ -1,3 +1,4 @@
+import ModelsActions from '../../../db/actions/ModelsActions';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -9,6 +10,7 @@ import './result.css';
 export const ResultClass = (props) => {
 
   const { values } = props;
+  ModelsActions.createModel(values.regModel);
   const generatedData = render(block, values, null);
 
   localStorage.setItem(`sv-${values.regModel.name}`, generatedData);
