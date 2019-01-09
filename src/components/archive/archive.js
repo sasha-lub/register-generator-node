@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './archive.css';
 import ModelsStore from "../../store/ModelsStore";
-import ModelsActions from "../../db/actions/ModelsActions";
+import ModelsActions from "../../actions/ModelsActions";
 import {load} from "../generator/account";
 
 export class Archive extends Component {

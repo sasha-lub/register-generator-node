@@ -9,7 +9,7 @@ import {resetForm,} from '../../store';
 
 import '../../styles/index.css';
 import './generator.css';
-import ModelsActions from "../../db/actions/ModelsActions";
+import ModelsActions from "../../actions/ModelsActions";
 import ModelsStore from "../../store/ModelsStore";
 
 class GeneratorClass extends React.Component {
@@ -71,7 +71,15 @@ const mapDispatchToProps = {
 export const Generator = reduxForm({
   form: 'generatorData',
   enableReinitialize: true,
-})(connect(state => ({
-  initialValues: state.selectedForm, // pull initial values from account reducer
-}), loadAccount)(GeneratorClass));
-
+  initialValues: {
+    regModel: {
+      name: 'register_model',
+      registers: [{
+        name : 'REG_1'
+      }],
+      blocks: [{
+        name : 'BLK_1'
+      }]
+    },
+  },
+})(connect(null, mapDispatchToProps)(GeneratorClass));

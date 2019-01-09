@@ -1,9 +1,0 @@
-{
-  "apiPrefix": "http://localhost:3000",
-  "serverPort": "3000",
-  "db":{
-    "name": "heroku_1m8n95p6",
-    "host": "ds151282.mlab.com",
-    "port": 51282
-  }
-}

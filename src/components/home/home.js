@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import '../../styles/index.css';
-import ModelsActions from "../../db/actions/ModelsActions";
+import ModelsActions from "../../actions/ModelsActions";
 
 export class Home extends Component {
   componentWillMount() {

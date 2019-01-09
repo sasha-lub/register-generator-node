@@ -1,4 +1,4 @@
-import ModelsActions from '../../../db/actions/ModelsActions';
+import ModelsActions from '../../../actions/ModelsActions';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
