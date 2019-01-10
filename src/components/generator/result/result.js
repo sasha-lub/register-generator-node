@@ -2,7 +2,7 @@ import ModelsActions from '../../../actions/ModelsActions';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getFormValues } from 'redux-form';
+import { getFormValues, Field } from 'redux-form';
 import { render } from 'velocityjs';
 import { block} from '../../../templates';
 
@@ -37,8 +37,9 @@ export const ResultClass = (props) => {
       </section>
 
       <section className="download-wrapper">
-        <p className="download-text">Quick view</p>
-        <pre className="text-block">
+        <p className="download-text">Quick edit</p>
+        <pre contentEditable="true"
+             className="text-block">
           {generatedData}
         </pre>
       </section>
