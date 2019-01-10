@@ -9,10 +9,10 @@ import { block} from '../../../templates';
 import './result.css';
 export const ResultClass = (props) => {
 
-  const { values } = props;
+  const { values, loadForm } = props;
   ModelsActions.createModel(values.regModel);
   const generatedData = render(block, values, null);
-
+  loadForm({data:"lol kek"});
   localStorage.setItem(`sv-${values.regModel.name}`, generatedData);
 
   const handleDownload = () => {

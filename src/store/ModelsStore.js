@@ -44,7 +44,6 @@ const TasksStore = Object.assign({}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(function (action) {
-  console.log("store register");
   switch (action.type) {
     case AppConstants.LOAD_MODELS_REQUEST: {
       _isLoading = true;

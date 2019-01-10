@@ -5,7 +5,7 @@ import {load as loadAccount} from './account';
 
 import {Block, Register, RegisterModel, Result,} from './';
 
-import {resetForm,} from '../../store';
+import {resetForm, loadForm} from '../../store';
 
 import '../../styles/index.css';
 import './generator.css';
@@ -66,6 +66,7 @@ class GeneratorClass extends React.Component {
 
 const mapDispatchToProps = {
   resetForm,
+  loadForm
 };
 
 export const Generator = reduxForm({

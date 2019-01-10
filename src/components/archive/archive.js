@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import './archive.css';
 import ModelsStore from "../../store/ModelsStore";
 import ModelsActions from "../../actions/ModelsActions";
-import {load} from "../generator/account";
+import {loadForm} from "../../store";
 
 export class Archive extends Component {
 
-  handleLoad = (state = {}, name) => {
-    ModelsActions.loadSingleModel(name,
+  handleLoad = (id) => {
+    ModelsActions.loadSingleModel(id,
       function () {
-        load(ModelsStore.getSelectedModel());
+        loadForm(ModelsStore.getSelectedModel());
       }
   );
     // const data = localStorage.getItem(name);
@@ -25,7 +25,7 @@ export class Archive extends Component {
   formatModel = (model) => {
     return <li id={model.id}>
       <span key="name"
-            onClick={() => this.handleLoad(model.name)}
+            onClick={() => this.handleLoad(model.id)}
             className="file-name"
             title="download file">
       {model.name}

@@ -23,8 +23,8 @@ const ModelActions = {
         );
     },
 
-  loadSingleModel(name, callback) {
-    api.findModel(name)
+  loadSingleModel(id, callback) {
+    api.findModel(id)
       .then(({ data }) =>
         AppDispatcher.dispatch({
           type: Constants.LOAD_MODEL_SUCCESS,

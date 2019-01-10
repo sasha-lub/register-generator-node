@@ -11,8 +11,8 @@ export default {
         return axios.post(`${apiPrefix}/models`, data);
     },
 
-    findModel(name) {
-      return axios.get(`${apiPrefix}/models/${name}`);
+    findModel(id) {
+      return axios.get(`${apiPrefix}/models/${id}`);
     },
 
     deleteModel(id) {
