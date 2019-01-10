@@ -1,31 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {reduxForm} from 'redux-form';
+import {reduxForm, initialize} from 'redux-form';
 import {load as loadAccount} from './account';
 
 import {Block, Register, RegisterModel, Result,} from './';
 
-import {resetForm, loadForm} from '../../store';
+import {resetForm} from '../../store';
 
 import '../../styles/index.css';
 import './generator.css';
-import ModelsActions from "../../actions/ModelsActions";
+import ModelsActions from "../../db/actions/ModelsActions";
 import ModelsStore from "../../store/ModelsStore";
 
 class GeneratorClass extends React.Component {
+
   renderContent() {
     const {pathname} = this.props.location;
 
     switch (true) {
-
       case (pathname.includes('done')):
         return <Result {...this.props} />;
-
-      case (pathname.includes('register')):
-        return <Register {...this.props} />;
-
-      case (pathname.includes('block')):
-        return <Block {...this.props} />;
 
       default:
         return <RegisterModel {...this.props} />;
@@ -38,17 +32,38 @@ class GeneratorClass extends React.Component {
     switch (true) {
       case (pathname.includes('done')):
         return 'Here is your file!';
-
-      case (pathname.includes('register')):
-        return 'Let\'s create a register';
-      case (pathname.includes('block')):
-        return 'Let\'s create a block';
       default:
         return 'Let\'s generate register model';
     }
   }
 
+  handleLoad = (id) => {
+      ModelsActions.loadSingleModel(id,() => {
+      const initialValues = {regModel : ModelsStore.getSelectedModel()};
+      this.props.dispatch(initialize('generatorData', initialValues))
+      })
+    };
+
+    formatModel = (model) => {
+      return <li id={model.id}>
+        <span key="name"
+              onClick={() => this.handleLoad(model.id)}
+              className="file-name"
+              title="download file">
+        {model.name}
+        </span>
+        <button
+          className="field-btn"
+          onClick={() => ModelsActions.deleteModel(model.id)}
+        >
+          <i className="far fa-trash-alt"/>
+        </button>
+      </li>
+    };
+
   render() {
+    const models = ModelsStore.getModels();
+    const filesList = models.map(this.formatModel);
     return (
       <main className="main">
         <header className="heading">
@@ -56,6 +71,10 @@ class GeneratorClass extends React.Component {
             {this.renderHeader()}
           </h2>
         </header>
+        <p>Saved models:</p>
+           <ul>
+             {filesList}
+           </ul>
         <section className="page section">
           {this.renderContent()}
         </section>
@@ -65,8 +84,7 @@ class GeneratorClass extends React.Component {
 }
 
 const mapDispatchToProps = {
-  resetForm,
-  loadForm
+  resetForm
 };
 
 export const Generator = reduxForm({

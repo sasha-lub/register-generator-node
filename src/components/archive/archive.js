@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { initialize } from 'redux-form';
 
 import './archive.css';
 import ModelsStore from "../../store/ModelsStore";
-import ModelsActions from "../../actions/ModelsActions";
-import {loadForm} from "../../store";
+import ModelsActions from "../../db/actions/ModelsActions";
 
 export class Archive extends Component {
 
   handleLoad = (id) => {
-    ModelsActions.loadSingleModel(id,
-      function () {
-        loadForm(ModelsStore.getSelectedModel());
-      }
-  );
+    ModelsActions.loadSingleModel(id,() => {
+    const initialValues = {regModel : ModelsStore.getSelectedModel()};
+    console.log(initialValues);
+    this.props.dispatch(initialize('generatorData', initialValues))
+    console.log(">>>>>>>>>>>>");
+    })
+//  );
     // const data = localStorage.getItem(name);
     // const file = new Blob([data], { type: 'text/plain' });
     //
