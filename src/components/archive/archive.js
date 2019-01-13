@@ -11,18 +11,8 @@ export class Archive extends Component {
   handleLoad = (id) => {
     ModelsActions.loadSingleModel(id,() => {
     const initialValues = {regModel : ModelsStore.getSelectedModel()};
-    console.log(initialValues);
     this.props.dispatch(initialize('generatorData', initialValues))
-    console.log(">>>>>>>>>>>>");
     })
-//  );
-    // const data = localStorage.getItem(name);
-    // const file = new Blob([data], { type: 'text/plain' });
-    //
-    // const element = document.createElement('a');
-    // element.href = URL.createObjectURL(file);
-    // element.download = `${name.slice(3)}.sv`;
-    // element.click();
   };
 
   formatModel = (model) => {
@@ -49,10 +39,7 @@ export class Archive extends Component {
     return (
       <main className="main">
         <section className="section">
-          <header className="heading">
-            <h2>Archive</h2>
-          </header>
-          <p>Here is a list of files that were made before:</p>
+          <p>Here is a list of models that were made before:</p>
           <ul>
             {filesList}
           </ul>

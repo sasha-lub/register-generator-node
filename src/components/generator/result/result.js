@@ -11,11 +11,10 @@ export const ResultClass = (props) => {
 
   const { values } = props;
   ModelsActions.createModel(values.regModel);
-  const generatedData = render(block, values, null);
-  localStorage.setItem(`sv-${values.regModel.name}`, generatedData);
+  const generatedFile = render(block, values, null);
 
   const handleDownload = () => {
-    const file = new Blob([generatedData], { type: 'text/plain' });
+    const file = new Blob([generatedFile], { type: 'text/plain' });
 
     const element = document.createElement('a');
     element.href = URL.createObjectURL(file);
@@ -39,7 +38,7 @@ export const ResultClass = (props) => {
         <p className="download-text">Quick edit</p>
         <pre contentEditable="true"
              className="text-block">
-          {generatedData}
+          {generatedFile}
         </pre>
       </section>
 
