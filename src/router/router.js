@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import {
   Generator,
-  Home,
-  Archive,
+  Home
 } from '../components';
 
 import './menu.css';

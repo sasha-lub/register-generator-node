@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// const apiPrefix = 'http://localhost:5000';
 const apiPrefix = 'https://register-generator-server.herokuapp.com';
 
 export default {

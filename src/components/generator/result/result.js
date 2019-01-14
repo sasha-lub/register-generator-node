@@ -2,7 +2,7 @@ import ModelsActions from '../../../db/actions/ModelsActions';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getFormValues, Field } from 'redux-form';
+import { getFormValues } from 'redux-form';
 import { render } from 'velocityjs';
 import { block} from '../../../templates';
 

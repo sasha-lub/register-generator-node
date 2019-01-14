@@ -17,7 +17,7 @@ const BlockFieldComponent = ({fields, fieldTypes}) => {
       {fields.map((field, index) => (
         <div className="section-field" key={`block-field-${index}`}>
           <Field className="form__input creating-field"
-                 name={`${field}.type`}
+                 name={`${field}.fieldType`}
                  component="select">
             <option value="">type</option>
             {

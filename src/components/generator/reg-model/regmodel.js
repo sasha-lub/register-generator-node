@@ -25,45 +25,45 @@ export const RegisterModelComponent = (props) => {
       </div>
       <div className="section-field left">
         <label>Generate stubs: </label>
-        <label className="check-box-label" htmlFor="generateAgent">
-          Agent
-        <Field name={'regModel.generateAgent'}
-               id="generateAgent"
-               component="input"
-               type="checkbox"/>
-        </label>
         <label className="check-box-label" htmlFor="generateEnv">
           Env
-          <Field name={'regModel.generateEnv'}
+          <Field name={'regModel.additionalComponent.generateEnv'}
                  id="generateEnv"
+                 component="input"
+                 type="checkbox"/>
+        </label>
+        <label className="check-box-label" htmlFor="generateTest">
+          Test
+          <Field name={'regModel.additionalComponent.generateTest'}
+                 id="generateTest"
                  component="input"
                  type="checkbox"/>
         </label>
         <label className="check-box-label" htmlFor="generateDriver">
           Driver
-          <Field name={'regModel.generateDriver'}
+          <Field name={'regModel.additionalComponent.generateDriver'}
                  id="generateDriver"
                  component="input"
                  type="checkbox"/>
         </label>
         <label className="check-box-label" htmlFor="generateAdapter">
           Adapter
-          <Field name={'regModel.generateAdapter'}
+          <Field name={'regModel.additionalComponent.generateAdapter'}
                  id="generateAdapter"
                  component="input"
                  type="checkbox"/>
         </label>
         <label className="check-box-label" htmlFor="generateTransaction">
         Transaction
-        <Field name={'regModel.generateTransaction'}
+        <Field name={'regModel.additionalComponent.generateTransaction'}
                id="generateTransaction"
                component="input"
                type="checkbox"/>
       </label>
-        <label className="check-box-label" htmlFor="generateSequence">
-          Sequence
-          <Field name={'regModel.generateSequence'}
-                 id="generateSequence"
+        <label className="check-box-label" htmlFor="generateSequencer">
+          Sequencer
+          <Field name={'regModel.additionalComponent.generateSequencer'}
+                 id="generateSequencer"
                  component="input"
                  type="checkbox"/>
         </label>

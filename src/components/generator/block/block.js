@@ -81,7 +81,7 @@ export const Block = ({fields}) => (
                  name={`${block}.mem.size`}
                  component="input"
                  type="number"
-                 placeholder="map size"/>
+                 placeholder="mem size"/>
         </div>
           <FieldArray
               name={`${block}.fields`}

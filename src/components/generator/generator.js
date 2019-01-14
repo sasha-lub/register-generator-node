@@ -1,17 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {reduxForm, initialize} from 'redux-form';
-import {load as loadAccount} from './account';
+import {reduxForm} from 'redux-form';
 
-import {Block, Register, RegisterModel, Result,} from './';
-
+import {RegisterModel, Result} from './';
 import {resetForm} from '../../store';
+import {Archive} from "../archive";
 
 import '../../styles/index.css';
 import './generator.css';
-import ModelsActions from "../../db/actions/ModelsActions";
-import ModelsStore from "../../store/ModelsStore";
-import {Archive} from "../archive";
 
 class GeneratorClass extends React.Component {
 
