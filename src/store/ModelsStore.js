@@ -7,7 +7,6 @@ const CHANGE_EVENT = 'change';
 
 let _models = [];
 let _selectedModel = {};
-let _loadingError = null;
 let _isLoading = true;
 
 function formatModel(model) {
@@ -55,15 +54,12 @@ AppDispatcher.register(function (action) {
     case AppConstants.LOAD_MODELS_SUCCESS: {
       _isLoading = false;
       _models = action.models.map(formatModel);
-      _loadingError = null;
 
       TasksStore.emitChange();
       break;
     }
 
     case AppConstants.LOAD_MODELS_FAIL: {
-      _loadingError = action.error;
-
       TasksStore.emitChange();
       break;
     }
@@ -71,8 +67,6 @@ AppDispatcher.register(function (action) {
     case AppConstants.LOAD_MODEL_SUCCESS: {
       _isLoading = false;
       _selectedModel = action.model;
-      _loadingError = null;
-
       TasksStore.emitChange();
       action.callback();
       break;

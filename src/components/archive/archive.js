@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { initialize } from 'redux-form';
+import { toast} from 'react-toastify';
 
 import './archive.css';
 import ModelsStore from "../../store/ModelsStore";
 import ModelsActions from "../../db/actions/ModelsActions";
+import 'react-toastify/dist/ReactToastify.css';
 
 export class Archive extends Component {
 
@@ -12,7 +14,8 @@ export class Archive extends Component {
     ModelsActions.loadSingleModel(id,() => {
     const initialValues = {regModel : ModelsStore.getSelectedModel()};
     this.props.dispatch(initialize('generatorData', initialValues))
-    })
+    });
+    toast('🦄 Model was loaded!');
   };
 
   formatModel = (model) => {

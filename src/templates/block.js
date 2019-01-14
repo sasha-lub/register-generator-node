@@ -11,19 +11,16 @@ import uvm_pkg::*;
 
 class $register.name extends uvm_reg;
     \`uvm_object_utils($register.name)
-
     #foreach($field in $register.fields)
-    rand uvm_reg_field $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end ;
+    rand uvm_reg_field $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end;
     #end
-
     function new(string name = "$register.name");
         super.new(.name(name),
-           .n_bits($register.size),
-           .has_coverage($register.coverageMode));
+                  .n_bits($register.size),
+                  .has_coverage($register.coverageMode));
     endfunction: new
 
     virtual function void build();
-
         #foreach($field in $register.fields)
         #if($field.dimension && $field.dimension > 1)
         for(int i = 0; i < $field.dimension; i++)
@@ -66,7 +63,7 @@ class $block.name extends uvm_reg_block;
 \`uvm_object_utils($block.name)
 
     #foreach($field in $block.fields)
-    rand $field.type $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end;
+    rand $field.fieldType $field.name#if($field.dimension && $field.dimension > 1)[$field.dimension]#end;
     #end
 
     #if($block.mem.name)uvm_mem $block.mem.name;#end
@@ -78,63 +75,57 @@ class $block.name extends uvm_reg_block;
     endfunction: new
 
     virtual function void build();
+  #foreach($field in $block.fields)
+    #if($field.dimension && $field.dimension > 1)
+      for (int i = 0; i < $field.dimension; i++)
+      begin
+        $field.name[i] = $field.fieldType::type_id::create(\\$sformatf("$field.name%0h", i));
+        `+'${field.name}[i]'+`.configure(.blk_parent(this));
+        `+'${field.name}[i]'+`.build();
+      end
+    #else
+      $field.name = $field.fieldType::type_id::create("$field.name");
+      `+'${field.name}'+`.configure(.blk_parent(this));
+      `+'${field.name}'+`.build();
+    #end
+  #end
 
-        #foreach($field in $block.fields)
+   #if($block.mem.name)
+   $block.mem.name = new("$block.mem.name", $block.mem.offset, $block.mem.size);
+   `+'${block.mem.name}'+`.add_hdl_path_slice("$block.mem.name", 0, $block.mem.size);
+   `+'${block.mem.name}'+`.configure(.parent(this));
+   #end
 
-          #if($field.dimension && $field.dimension > 1)
+   $block.map.name = create_map(.name("$block.map.name"),
+                                .base_addr($block.map.offset),
+                                .n_bytes($block.map.size),
+                                .endian($block.map.endian);
+   default_map = $block.map.name;
 
-            for (int i = 0; i < $field.dimension; i++)
-            begin
-              $field.name[i] = $field.type::type_id::create(\\$sformatf("$field.name%0h", i));
-              `+'${field.name}[i]'+`.configure(.blk_parent(this));
-              `+'${field.name}[i]'+`.build();
-            end
-
-          #else
-
-            $field.name = $field.type::type_id::create("$field.name");
-            `+'${field.name}'+`.configure(.blk_parent(this));
-            `+'${field.name}'+`.build();
-
-          #end
-        #end
-
-        #if($block.mem.name)
-
-        $block.mem.name = new("$block.mem.name", $block.mem.offset, $block.mem.size);
-        `+'${block.mem.name}'+`.add_hdl_path_slice("$block.mem.name", 0, $block.mem.size);
-        `+'${block.mem.name}'+`.configure(.parent(this));
-        #end
-
-        $block.map.name = create_map(.name("$block.map.name"),
-                                     .base_addr($block.map.offset),
-                                     .n_bytes($block.map.size),
-                                     .endian($block.map.endian);
-        default_map = $block.map.name;
-
-        #foreach($field in $block.fields)
-        #if($field.dimension && $field.dimension > 1)
-        for (int i = 0; i < $field.dimension; i++)
-        begin
-        `+'${block.map.name}'+`.add_reg(.rg($field.name[i]),
-                                  .offset(i), // todo: field offset
-                                  .rights($field.access));
-        end
-        #else
-          `+'${block.map.name}'+`.add_reg(.rg($field.name),
-                                    .offset($field.offset),
-                                    .rights($field.access));
-        #end
-        #end
-        #if($block.mem.name)
-        `+'${block.map.name}'+`.add_mem($block.mem.name, .offset($block.mem.offset)));
-        #end
-
+   #foreach($field in $block.fields)
+   #if($field.dimension && $field.dimension > 1)
+   for (int i = 0; i < $field.dimension; i++)
+   begin
+   `+'${block.map.name}'+`.add_reg(.rg($field.name[i]),
+                             .offset(i), // todo: field offset
+                             .rights($field.access));
+   end
+   #else
+     `+'${block.map.name}'+`.add_reg(.rg($field.name),
+                               .offset($field.offset),
+                               .rights($field.access));
+   #end
+   #end
+   #if($block.mem.name)
+   `+'${block.map.name}'+`.add_mem($block.mem.name, .offset($block.mem.offset)));
+   #end
         lock_model();
     endfunction: build
 
 endclass: $block.name
 #end
+
+#if($regModel.package)endpackage: $regModel.package;#end
 
 #if($regModel.generateAgent)
   //////////////////////////////////
