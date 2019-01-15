@@ -25,6 +25,13 @@ export const RegisterModelComponent = (props) => {
       </div>
       <div className="section-field left">
         <label>Generate stubs: </label>
+        <label className="check-box-label" htmlFor="generateTop">
+          Top
+          <Field name={'regModel.additionalComponent.generateTop'}
+                 id="generateTop"
+                 component="input"
+                 type="checkbox"/>
+        </label>
         <label className="check-box-label" htmlFor="generateEnv">
           Env
           <Field name={'regModel.additionalComponent.generateEnv'}
@@ -60,10 +67,10 @@ export const RegisterModelComponent = (props) => {
                component="input"
                type="checkbox"/>
       </label>
-        <label className="check-box-label" htmlFor="generateSequencer">
-          Sequencer
-          <Field name={'regModel.additionalComponent.generateSequencer'}
-                 id="generateSequencer"
+        <label className="check-box-label" htmlFor="generateSequence">
+          Sequence
+          <Field name={'regModel.additionalComponent.generateSequence'}
+                 id="generateSequence"
                  component="input"
                  type="checkbox"/>
         </label>
@@ -108,5 +115,4 @@ export const RegisterModelComponent = (props) => {
 };
 
 export const RegisterModel = connect(
-  // validate
 )(RegisterModelComponent);

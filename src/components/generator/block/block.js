@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Field, FieldArray } from 'redux-form';
 import { BlockField } from './block-field';
+import { RegField } from './reg-field';
 
 import './block.css';
 
@@ -84,7 +85,11 @@ export const Block = ({fields}) => (
                  placeholder="mem size"/>
         </div>
           <FieldArray
-              name={`${block}.fields`}
+              name={`${block}.regFields`}
+              component={RegField}
+          />
+          <FieldArray
+              name={`${block}.blockFields`}
               component={BlockField}
           />
       </fieldset>

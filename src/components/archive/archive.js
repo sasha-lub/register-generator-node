@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { initialize } from 'redux-form';
 import { toast} from 'react-toastify';
 
@@ -15,7 +14,7 @@ export class Archive extends Component {
     const initialValues = {regModel : ModelsStore.getSelectedModel()};
     this.props.dispatch(initialize('generatorData', initialValues))
     });
-    toast('🦄 Model was loaded!');
+    toast('🚀 Model was loaded!');
   };
 
   formatModel = (model) => {
