@@ -127,7 +127,7 @@ class $block.name extends uvm_reg_block;
    for (int i = 0; i < $field.dimension; i++)
    begin
    `+'${block.map.name}'+`.add_reg(.rg($field.name[i]),
-                             .offset(i * $field.offset),
+                             .offset($field.offset + i * 4),
                              .rights("$field.access"));
    end
    #else
@@ -443,8 +443,10 @@ class `+'${regModel.name}'+`_driver extends uvm_driver #(`+'${regModel.name}'+`_
 
 #if($regModel.package)endpackage: $regModel.package;#end
 
+#if($regModel.additionalComponent.generateTop)
+
   //////////////////////////////////
-  // This is TOP stub
+  // This is MODULE TOP declaration
   //////////////////////////////////
 
 module top;
@@ -472,5 +474,5 @@ module top;
   end
 
 endmodule: top
-
+#end
 `;
