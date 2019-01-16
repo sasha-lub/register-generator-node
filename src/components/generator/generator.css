@@ -63,6 +63,12 @@
   width: 65px;
 }
 
+.form__input__label_block_b{
+  font-size: 13px;
+  color: #5a5a5a;
+  padding: 0 70px;
+  width: 80px;
+}
 
 .page__search-result, .page__user-list {
   width: 50%;

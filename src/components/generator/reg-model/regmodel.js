@@ -24,7 +24,7 @@ export const RegisterModelComponent = (props) => {
                placeholder="package"/>
       </div>
       <div className="section-field left">
-        <label>Generate stubs: </label>
+        <label>Generate : </label>
         <label className="check-box-label" htmlFor="generateTop">
           Top
           <Field name={'regModel.additionalComponent.generateTop'}

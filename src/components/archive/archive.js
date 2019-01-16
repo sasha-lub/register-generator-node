@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { initialize } from 'redux-form';
-import { toast} from 'react-toastify';
+import { ToastContainer, toast} from 'react-toastify';
 
 import './archive.css';
 import ModelsStore from "../../store/ModelsStore";
@@ -14,7 +14,7 @@ export class Archive extends Component {
     const initialValues = {regModel : ModelsStore.getSelectedModel()};
     this.props.dispatch(initialize('generatorData', initialValues))
     });
-    toast('🚀 Model was loaded!');
+    toast.warning('🚀 Model was loaded!');
   };
 
   formatModel = (model) => {
@@ -39,14 +39,15 @@ export class Archive extends Component {
     const filesList = models.map(this.formatModel);
 
     return (
-      <main className="main">
-        <section className="section">
-          <p>Here is a list of models that were made before:</p>
-          <ul>
-            {filesList}
-          </ul>
-        </section>
-      </main>
+    <main className="main">
+        <ToastContainer />
+      <section className="section">
+        <p>Here is a list of models that were made before:</p>
+        <ul>
+          {filesList}
+        </ul>
+      </section>
+    </main>
     );
   }
 }

@@ -36,11 +36,6 @@ const BlockFieldComponent = ({fields, blockTypes}) => {
                  component="input"
                  type="text"
                  placeholder="offset"/>
-          [<Field className="form__input creating-field"
-                  name={`${field}.dimension`}
-                  component="input"
-                  type="number"
-                  placeholder="dimension"/>]
           <button
             className="field-btn"
             onClick={() => fields.push(fields.get(index))}
@@ -62,11 +57,10 @@ const BlockFieldComponent = ({fields, blockTypes}) => {
 
 function renderLabels(fields) {
   if (fields.length > 0) {
-    return <div className="section-field left">
-      <label className="form__input__label_block">type</label>
-      <label className="form__input__label_block">name</label>
-      <label className="form__input__label_block">offset</label>
-      <label className="form__input__label_block">dimension</label>
+    return <div className="section-block-field left">
+      <label className="form__input__label_block_b">type</label>
+      <label className="form__input__label_block_b">name</label>
+      <label className="form__input__label_block_b">offset</label>
     </div>
 
   }

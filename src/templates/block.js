@@ -39,7 +39,7 @@ class $register.name extends uvm_reg;
             `+'${field.name}[i]'+`.configure(
                         .parent                  (this),
                         .size                    ($field.size),
-                        .lsb_pos                 ($field.lsbPos),
+                        .lsb_pos                 ($field.lsbPos + $field.size * i),
                         .access                  ("$field.access"),
                         .volatile                ($field.volatile),
                         .reset                   ($field.reset),
@@ -105,18 +105,9 @@ class $block.name extends uvm_reg_block;
     #end
 
     #foreach($field in $block.blockFields)
-        #if($field.dimension && $field.dimension > 1)
-            for (int i = 0; i < $field.dimension; i++)
-            begin
-          $field.name[i] = $field.fieldType::type_id::create(\\$sformatf("$field.name%0h", i));
-          `+'${field.name}[i]'+`.configure(this);
-          `+'${field.name}[i]'+`.build();
-            end
-        #else
-          $field.name = $field.fieldType::type_id::create("$field.name");
-          `+'${field.name}'+`.configure(this);
-          `+'${field.name}'+`.build();
-        #end
+       $field.name = $field.fieldType::type_id::create("$field.name");
+       `+'${field.name}'+`.configure(this);
+       `+'${field.name}'+`.build();
     #end
 
    #if($block.mem.name)

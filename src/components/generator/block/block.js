@@ -58,7 +58,6 @@ export const Block = ({fields}) => (
               <Field className="form__input creating"
                  name={`${block}.map.endian`}
                  component="select">
-                  <option value="">endian</option>
                   <option value="UVM_NO_ENDIAN">UVM_NO_ENDIAN</option>
                   <option value="UVM_LITTLE_ENDIAN">UVM_LITTLE_ENDIAN</option>
                   <option value="UVM_BIG_ENDIAN">UVM_BIG_ENDIAN</option>
